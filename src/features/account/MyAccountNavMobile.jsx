@@ -1,0 +1,64 @@
+import { FaAngleDown, FaAngleUp } from "react-icons/fa6";
+import { useState } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
+import useLogout from "../authentication/useLogout";
+
+function MyAccountNavMobile() {
+  const [isOpen, setIsOpen] = useState();
+  let type = window.location.href.split("/")[3];
+
+  const navigate = useNavigate();
+  const { Logout } = useLogout();
+
+  type = type === "myAccount" ? "My Account" : type;
+  type = type?.at(0)?.toLocaleUpperCase() + type?.slice(1);
+
+  function handleClick() {
+    Logout();
+    navigate("/");
+  }
+
+  return (
+    <div>
+      <div
+        className="mb-2 mt-0.5 hidden h-12 w-[262px] cursor-pointer items-center justify-between rounded-lg border-2 border-black-shade-4 bg-white py-2 pl-4 pr-4 font-semibold leading-[26px] text-black-shade-1 outline-none max-xl:w-[180px] max-lg:flex max-lg:w-[100%]"
+        onClick={() => setIsOpen((open) => !open)}
+      >
+        <p className="text-nowrap">{type}</p>
+        {isOpen ? <FaAngleUp /> : <FaAngleDown />}
+      </div>
+      {isOpen && (
+        <ul
+          className={`absolute z-50 w-[100%] space-y-[10px] rounded-xl border border-white-shade-2 bg-white p-2 font-inter text-black-shade-4 max-lg:relative`}
+        >
+          <NavLink
+            to={"/myAccount"}
+            className="account inline-block w-full py-2"
+          >
+            Account
+          </NavLink>
+          <NavLink to={"/address"} className="account inline-block w-full py-2">
+            Address
+          </NavLink>
+          <NavLink to={"/orders"} className="account inline-block w-full py-2">
+            Orders
+          </NavLink>
+          <NavLink
+            to={"/wishlist"}
+            className="account inline-block w-full py-2"
+          >
+            Wishlist
+          </NavLink>
+          <button
+            className="inline-block w-full py-2 text-start"
+            onClick={handleClick}
+          >
+            Log Out
+          </button>
+        </ul>
+      )}
+    </div>
+  );
+}
+
+export default MyAccountNavMobile;
