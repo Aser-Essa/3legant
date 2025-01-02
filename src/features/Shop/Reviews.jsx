@@ -11,6 +11,8 @@ import FilterBy from "../../ui/FilterBy";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { IoIosStarOutline } from "react-icons/io";
 import toast from "react-hot-toast";
+import TextAnimation from "../../ui/TextAnimation";
+import { motion } from "motion/react";
 
 function Reviews() {
   const [searchParams] = useSearchParams();
@@ -73,15 +75,23 @@ function Reviews() {
   return (
     <>
       <div className="mb-16 flex flex-col gap-6 max-sm:mb-8">
-        <p className="text-[28px] font-medium max-sm:text-xl">
-          Customer Reviews
-        </p>
+        <div className="text-[28px] font-medium max-sm:text-xl">
+          <TextAnimation text={"Customer Reviews"} />
+        </div>
         <div className="flex items-center gap-2">
           <FiveStarRate product={product} />
-          <p className="font-inter text-xs">{reviews?.length} Reviews</p>
+          <div className="font-inter text-xs">
+            <TextAnimation text={`${reviews?.length} Reviews`} />
+          </div>
         </div>
       </div>
-      <div className="flex h-[72px] items-center overflow-hidden rounded-2xl border-2 border-white-shade-1 pr-4 max-sm:h-16">
+      <motion.div
+        className="flex h-[72px] items-center overflow-hidden rounded-2xl border-2 border-white-shade-1 pr-4 max-sm:h-16"
+        initial={{ opacity: 0, translateY: 50 }}
+        whileInView={{ opacity: 1, translateY: 0 }}
+        transition={{ duration: 0.4, delay: 0.2 }}
+        viewport={{ once: true }}
+      >
         <input
           type="text"
           value={comment}
@@ -95,7 +105,7 @@ function Reviews() {
               <IoIosStar
                 key={`${star} ${idx}`}
                 onClick={() => handleClickStar(idx + 1)}
-                className="h-5 w-5 cursor-pointer"
+                className="min-h-5 min-w-5 cursor-pointer"
               />
             </>
           ))}
@@ -104,11 +114,12 @@ function Reviews() {
               <IoIosStarOutline
                 key={`${star} ${idx}`}
                 onClick={() => handleClickStar(idx + 1 + stars)}
-                className="h-5 w-5 cursor-pointer"
+                className="h-5 min-w-5 cursor-pointer"
               />
             </>
           ))}
         </div>
+
         <button
           className="h-10 min-w-[176px] rounded-[80px] bg-black px-10 py-1.5 font-inter font-medium tracking-[-.4px] text-white max-sm:hidden"
           onClick={handleClick}
@@ -121,7 +132,7 @@ function Reviews() {
         >
           <IoIosArrowRoundForward className="h-6 w-6 font-semibold" />
         </button>
-      </div>
+      </motion.div>
       <div className="my-10 flex justify-between gap-6 max-sm:flex-col">
         <p className="text-[28px] font-medium">{reviews?.length} Reviews</p>
         <FilterBy param={"displayReviews"} defaultValue="All Reviews">

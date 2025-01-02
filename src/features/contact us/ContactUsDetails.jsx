@@ -1,10 +1,19 @@
+import TextAnimation from "../../ui/TextAnimation";
+import { motion } from "motion/react";
+
 function ContactUsDetails() {
   return (
     <div>
-      <p className="text-center text-[40px] font-medium">Contact Us</p>
+      <div className="mx-auto w-fit text-center text-[40px] font-medium">
+        <TextAnimation text={"Contact Us"} delay={0.1} />
+      </div>
       <div className="my-10 grid grid-cols-3 gap-6 max-sm:grid-cols-1 max-sm:gap-4">
-        <div
+        <motion.div
           className={`flex h-[156px] flex-col items-center justify-center bg-white-shade-2 text-center max-sm:px-8`}
+          initial={{ opacity: 0, translateX: -100 }}
+          whileInView={{ opacity: 1, translateX: 0 }}
+          transition={{ duration: 0.3, delay: 0.2 }}
+          viewport={{ once: true }}
         >
           <img src={`/store 01.png`} className="mb-4 h-8 w-8" />
           <div className="space-y-2 max-sm:h-[76px]">
@@ -15,9 +24,13 @@ function ContactUsDetails() {
               234 Hai Trieu, Ho Chi Minh City, Viet Nam
             </p>
           </div>
-        </div>
-        <div
+        </motion.div>
+        <motion.div
           className={`flex h-[156px] flex-col items-center justify-center bg-white-shade-2`}
+          initial={{ opacity: 0, scale: 0 }}
+          whileInView={{ opacity: 1, scale: [0, 1.1, 1] }}
+          transition={{ duration: 0.4, delay: 0.2 }}
+          viewport={{ once: true }}
         >
           <img src={`/call.png`} className="mb-4 h-8 w-8" />
           <div className="space-y-2 max-sm:h-[76px]">
@@ -28,9 +41,13 @@ function ContactUsDetails() {
               +84 234 567 890
             </p>
           </div>
-        </div>
-        <div
+        </motion.div>
+        <motion.div
           className={`flex h-[156px] flex-col items-center justify-center bg-white-shade-2`}
+          initial={{ opacity: 0, translateX: 100 }}
+          whileInView={{ opacity: 1, translateX: 0 }}
+          transition={{ duration: 0.3, delay: 0.2 }}
+          viewport={{ once: true }}
         >
           <img src={`/mail.png`} className="mb-4 h-8 w-8" />
           <div className="space-y-2 max-sm:h-[76px]">
@@ -41,7 +58,7 @@ function ContactUsDetails() {
               hello@3legant.com
             </p>
           </div>
-        </div>
+        </motion.div>
       </div>
     </div>
   );

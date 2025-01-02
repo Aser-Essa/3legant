@@ -5,6 +5,8 @@ import { LuCamera } from "react-icons/lu";
 import MyAccountNavMobile from "./MyAccountNavMobile";
 import useUpdateAvatar from "./useUpdateAvatar";
 import MyAccountNav from "./MyAccountNav";
+import TextAnimation from "../../ui/TextAnimation";
+import { motion } from "motion/react";
 
 function MyAccountLayout() {
   const { user } = useUser();
@@ -17,11 +19,17 @@ function MyAccountLayout() {
   return (
     <>
       <SectionContainer className={"py-20"}>
-        <p className="w-full pb-20 text-center text-[54px] font-medium">
-          My Account
-        </p>
-        <div className="flex gap-2 max-lg:flex-col max-lg:items-center">
-          <div className="h-[468px] min-w-[262px] max-w-[262px] rounded-lg bg-white-shade-2 px-4 py-10 max-lg:h-fit max-lg:min-w-[100%]">
+        <div className="mx-auto w-fit pb-20 text-center text-[54px] font-medium">
+          <TextAnimation text={"My Account"} />
+        </div>
+        <div className="flex gap-2 overflow-hidden max-lg:flex-col max-lg:items-center">
+          <motion.div
+            className="h-[468px] min-w-[262px] max-w-[262px] rounded-lg bg-white-shade-2 px-4 py-10 max-lg:h-fit max-lg:min-w-[100%]"
+            initial={{ opacity: 0, translateX: "-100%" }}
+            whileInView={{ opacity: 1, translateX: "0" }}
+            transition={{ duration: 0.4, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
             <div className="mb-10 flex flex-col items-center">
               <div className="relative h-20 w-20 cursor-pointer">
                 <input
@@ -43,7 +51,7 @@ function MyAccountLayout() {
             </div>
             <MyAccountNavMobile />
             <MyAccountNav />
-          </div>
+          </motion.div>
           <Outlet />
         </div>
       </SectionContainer>

@@ -1,3 +1,4 @@
+import { AnimatePresence } from "motion/react";
 import { cloneElement, useEffect, useRef, useState } from "react";
 import { FaAngleDown, FaAngleUp } from "react-icons/fa6";
 
@@ -34,7 +35,9 @@ function SortBy({ children }) {
             <FaAngleDown className="h-3 w-3" />
           )}
         </div>
-        {isOpen && cloneElement(children, { setIsOpen })}
+        <AnimatePresence>
+          {isOpen && cloneElement(children, { setIsOpen })}
+        </AnimatePresence>
       </div>
     </>
   );

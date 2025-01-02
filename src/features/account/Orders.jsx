@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 import { formatCurrency } from "../../utils/formatCurrency";
+import SlideInFromLeftAnimation from "../../ui/SlideInFromLeftAnimation";
 
 function Orders() {
   const { order } = useSelector((store) => store.order);
@@ -37,9 +38,9 @@ function Orders() {
             <p>Status</p>
             <p>Price</p>
           </div>
-          {order.map((el) => {
+          {order.map((el, idx) => {
             return (
-              <>
+              <SlideInFromLeftAnimation key={el} delay={`0.${idx + 1}`}>
                 <div className="grid h-[70px] w-full grid-cols-[160px_120px_120px_137px] justify-between border-b border-white-shade-1 text-sm text-black-shade-1">
                   <p className="flex items-center py-6">#{el.order_id}</p>
                   <p className="flex items-center py-6">{el.date}</p>
@@ -48,7 +49,7 @@ function Orders() {
                     {formatCurrency(el.totalPrice)}
                   </p>
                 </div>
-              </>
+              </SlideInFromLeftAnimation>
             );
           })}
         </div>

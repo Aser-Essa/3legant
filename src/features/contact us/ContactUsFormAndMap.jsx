@@ -1,6 +1,8 @@
 import Form from "../../ui/Form";
 import Button from "../../ui/Button";
 import { useForm } from "react-hook-form";
+import { motion } from "motion/react";
+import SlideInFromLeftAnimation from "../../ui/SlideInFromLeftAnimation";
 
 function ContactUsFormAndMap() {
   const { register, formState, handleSubmit } = useForm();
@@ -17,7 +19,11 @@ function ContactUsFormAndMap() {
           onSubmit={handleSubmit(onSubmit)}
         >
           <Form.Label id="firstName">
-            <p className="h-3 font-inter text-xs font-bold">FIRST NAME</p>
+            <div className="min-h-fit overflow-hidden">
+              <SlideInFromLeftAnimation duration={0.4}>
+                <p className="h-3 font-inter text-xs font-bold">FIRST NAME</p>
+              </SlideInFromLeftAnimation>
+            </div>
             <Form.Input
               type="text"
               id="firstName"
@@ -28,7 +34,9 @@ function ContactUsFormAndMap() {
             />
           </Form.Label>
           <Form.Label id="lastName">
-            <p className="h-3 font-inter text-xs font-bold">LAST NAME</p>
+            <SlideInFromLeftAnimation duration={0.4}>
+              <p className="h-3 font-inter text-xs font-bold">LAST NAME</p>
+            </SlideInFromLeftAnimation>
             <Form.Input
               type="text"
               id="lastName"
@@ -39,7 +47,9 @@ function ContactUsFormAndMap() {
             />
           </Form.Label>
           <Form.Label id="lastName">
-            <p className="h-3 font-inter text-xs font-bold">MESSAGE</p>
+            <SlideInFromLeftAnimation duration={0.4}>
+              <p className="h-3 font-inter text-xs font-bold">MESSAGE</p>
+            </SlideInFromLeftAnimation>
             <Form.TextArea
               type="text"
               id="lastName"
@@ -49,15 +59,31 @@ function ContactUsFormAndMap() {
               }
             />
           </Form.Label>
-          <Button
-            className={
-              "max-h-10 w-[189px] text-nowrap px-0 py-0 max-sm:mx-auto max-sm:mt-[-8px]"
-            }
+          <motion.div
+            initial={{ opacity: 0.5, scale: 0 }}
+            whileInView={{ opacity: 1, scale: [0, 1.08, 1] }}
+            transition={{ duration: 1 }}
+            viewport={{ once: true }}
           >
-            Send Message
-          </Button>
+            <Button
+              className={
+                "max-h-10 w-[189px] text-nowrap px-0 py-0 max-sm:mx-auto max-sm:mt-[-8px]"
+              }
+            >
+              Send Message
+            </Button>
+          </motion.div>
         </Form>
-        <div className="relative min-w-[548px] max-2xl:w-full max-sm:min-w-[auto]">
+        <motion.div
+          className="relative min-w-[548px] max-2xl:w-full max-sm:min-w-[auto]"
+          initial={{
+            opacity: 0,
+            scale: 0,
+          }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
           <img
             src="/map.png"
             className="max-h-[422.4px] min-h-[422.4px] w-[548px] max-2xl:w-full max-sm:h-[326.5px]"
@@ -66,7 +92,7 @@ function ContactUsFormAndMap() {
             src="location.png"
             className="absolute left-[50%] top-[50%] h-16 w-16 translate-x-[-50%] translate-y-[-50%]"
           />
-        </div>
+        </motion.div>
       </div>
     </div>
   );

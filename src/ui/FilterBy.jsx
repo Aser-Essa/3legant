@@ -1,6 +1,7 @@
 import { cloneElement, useEffect, useRef, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { FaAngleDown, FaAngleUp } from "react-icons/fa6";
+import { AnimatePresence } from "motion/react";
 
 // eslint-disable-next-line react/prop-types
 function FilterBy({ children, title, param, defaultValue }) {
@@ -39,7 +40,9 @@ function FilterBy({ children, title, param, defaultValue }) {
           <p className="text-nowrap">{value || defaultValue}</p>
           {isOpen ? <FaAngleUp /> : <FaAngleDown />}
         </div>
-        {isOpen && cloneElement(children, { setIsOpen })}
+        <AnimatePresence>
+          {isOpen && cloneElement(children, { setIsOpen })}
+        </AnimatePresence>
       </div>
     </>
   );

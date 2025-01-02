@@ -18,7 +18,13 @@ function Products() {
         data={products}
         render={(el, idx) => {
           if (gridType == 3 || gridType == 4 || window.innerWidth < 638) {
-            return <ProductCard key={`${el} ${idx}`} product={el} />;
+            return (
+              <ProductCard
+                key={`${el} ${idx}`}
+                product={el}
+                animation={false}
+              />
+            );
           } else {
             return (
               <DetaildProductCard

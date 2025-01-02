@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { LuPencilLine } from "react-icons/lu";
 import useUpdateAdress from "./useUpdateAdress";
 import { useUser } from "../../hooks/useUser";
+import SlideInFromRightAnimation from "../../ui/SlideInFromRightAnimation";
 
 function ShippingAddressForm() {
   const { user } = useUser();
@@ -38,7 +39,7 @@ function ShippingAddressForm() {
   }, [edit, state, number, street]);
 
   return (
-    <>
+    <SlideInFromRightAnimation className={"w-full"} duration={0.4} delay={0.12}>
       <div
         className="h-full w-full rounded-lg border border-black-shade-4 p-4"
         ref={ref}
@@ -77,7 +78,7 @@ function ShippingAddressForm() {
           />
         </form>
       </div>
-    </>
+    </SlideInFromRightAnimation>
   );
 }
 

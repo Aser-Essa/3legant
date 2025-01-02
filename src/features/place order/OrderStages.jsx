@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 import OrderNavLink from "./OrderNavLink";
+import TextAnimation from "../../ui/TextAnimation";
 
 // eslint-disable-next-line react/prop-types
 function OrderStages({ title }) {
@@ -9,7 +10,9 @@ function OrderStages({ title }) {
   return (
     <>
       <div className="flex w-full flex-col items-center gap-10 text-center max-sm:items-stretch">
-        <p className="text-[54px] font-medium">{title}</p>
+        <div className="text-[54px] font-medium">
+          <TextAnimation text={title} />
+        </div>
         <div className="flex w-full items-center justify-center gap-8 font-inter font-semibold max-sm:w-[256px]">
           <OrderNavLink
             title={"Shopping cart"}

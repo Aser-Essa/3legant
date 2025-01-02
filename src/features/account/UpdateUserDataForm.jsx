@@ -3,6 +3,9 @@ import Form from "../../ui/Form";
 import Button from "../../ui/Button";
 import { useUser } from "../../hooks/useUser";
 import useUpdateUser from "./useUpdateUser";
+import SlideInFromLeftAnimation from "../../ui/SlideInFromLeftAnimation";
+import TextRevealAnimation from "../../ui/TextRevealAnimation";
+import { motion } from "motion/react";
 
 function UpdateUserDataForm() {
   const { user } = useUser();
@@ -25,9 +28,13 @@ function UpdateUserDataForm() {
       className="flex w-full flex-col gap-10"
     >
       <div className="flex w-full flex-col gap-6">
-        <p className="font-inter text-xl font-semibold">Account Details</p>
+        <TextRevealAnimation duration={0.6} delay={0.2}>
+          <p className="font-inter text-xl font-semibold">Account Details</p>
+        </TextRevealAnimation>
         <Form.Label id="firstName">
-          <p className="font-inter text-xs font-bold">FIRST NAME *</p>
+          <SlideInFromLeftAnimation duration={0.5}>
+            <p className="font-inter text-xs font-bold">FIRST NAME *</p>
+          </SlideInFromLeftAnimation>
           <Form.Input
             type="text"
             id="firstName"
@@ -38,7 +45,9 @@ function UpdateUserDataForm() {
           />
         </Form.Label>
         <Form.Label id="lastName">
-          <p className="font-inter text-xs font-bold">LAST NAME *</p>
+          <SlideInFromLeftAnimation duration={0.5}>
+            <p className="font-inter text-xs font-bold">LAST NAME *</p>
+          </SlideInFromLeftAnimation>
           <Form.Input
             type="text"
             id="lastName"
@@ -49,7 +58,9 @@ function UpdateUserDataForm() {
           />
         </Form.Label>
         <Form.Label id="lastName">
-          <p className="font-inter text-xs font-bold">Display name *</p>
+          <SlideInFromLeftAnimation duration={0.5}>
+            <p className="font-inter text-xs font-bold">Display name *</p>
+          </SlideInFromLeftAnimation>
           <Form.Input
             type="text"
             id="username"
@@ -64,7 +75,9 @@ function UpdateUserDataForm() {
           </p>
         </Form.Label>
         <Form.Label id="email">
-          <p className="font-inter text-xs font-bold">EMAIL *</p>
+          <SlideInFromLeftAnimation duration={0.5}>
+            <p className="font-inter text-xs font-bold">EMAIL *</p>
+          </SlideInFromLeftAnimation>
           <Form.Input
             type="email"
             id="email"
@@ -83,10 +96,14 @@ function UpdateUserDataForm() {
         </Form.Label>
       </div>
       <div className="flex w-full flex-col gap-6">
-        <p className="font-inter text-xl font-semibold">Password</p>
+        <TextRevealAnimation duration={0.6} delay={0.2}>
+          <p className="font-inter text-xl font-semibold">Password</p>
+        </TextRevealAnimation>
 
         <Form.Label id="oldpassword">
-          <p className="font-inter text-xs font-bold">Old password</p>
+          <SlideInFromLeftAnimation duration={0.5}>
+            <p className="font-inter text-xs font-bold">Old password</p>
+          </SlideInFromLeftAnimation>
           <Form.Input
             type="password"
             id="oldpassword"
@@ -102,7 +119,9 @@ function UpdateUserDataForm() {
           />
         </Form.Label>
         <Form.Label id="oldpassword">
-          <p className="font-inter text-xs font-bold">new password</p>
+          <SlideInFromLeftAnimation duration={0.5}>
+            <p className="font-inter text-xs font-bold">new password</p>
+          </SlideInFromLeftAnimation>
           <Form.Input
             type="password"
             id="newpassword"
@@ -118,7 +137,9 @@ function UpdateUserDataForm() {
           />
         </Form.Label>
         <Form.Label id="repeatnewpassword">
-          <p className="font-inter text-xs font-bold">REPEAT NEW PASSWORD</p>
+          <SlideInFromLeftAnimation duration={0.5}>
+            <p className="font-inter text-xs font-bold">REPEAT NEW PASSWORD</p>
+          </SlideInFromLeftAnimation>
           <Form.Input
             type="password"
             id="repeatnewpassword"
@@ -137,9 +158,16 @@ function UpdateUserDataForm() {
           />
         </Form.Label>
       </div>
-      <Button className="h-[52px] w-[183px] text-nowrap font-inter">
-        Save changes
-      </Button>
+      <motion.div
+        initial={{ opacity: 0.5, scale: 0 }}
+        whileInView={{ opacity: 1, scale: [0, 1.05, 1] }}
+        transition={{ duration: 0.7 }}
+        viewport={{ once: true }}
+      >
+        <Button className="h-[52px] w-[183px] text-nowrap font-inter">
+          Save changes
+        </Button>
+      </motion.div>
     </Form>
   );
 }

@@ -56,9 +56,7 @@ function CartProduct({ product }) {
           <p className="w-[58px]">{formatCurrency(product?.Price)}</p>
         </div>
         <div className="flex flex-col items-end gap-2 text-lg font-medium">
-          <p className="w-[64px]">
-            {formatCurrency(product?.Price * product?.quantity)}
-          </p>
+          <p>{formatCurrency(product?.Price * product?.quantity)}</p>
         </div>
       </div>
     </div>
