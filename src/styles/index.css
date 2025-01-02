@@ -183,6 +183,6 @@ body::-webkit-scrollbar {
 }
 
 /* Card Buttons Hover  */
-.card:hover .show-at-hover {
+.card:hover {
   opacity: 1;
 }

@@ -59,8 +59,13 @@ function FilterSortGridBlog() {
           <ListItem value="2" styleType="card">
             <Grid2Icon />
           </ListItem>
-          <ListItem value="1" styleType="card" className="hidden max-sm:flex">
-            <Grid1Icon />
+          <ListItem
+            value="1"
+            styleType="card"
+            defaultValue={true}
+            className="hidden max-sm:flex"
+          >
+            <Grid1Icon defaultValue={true} />
           </ListItem>
         </Grid>
       </div>

@@ -20,8 +20,6 @@ function ListItem({
           width: "46px",
           height: "40px",
           borderRadius: 0,
-          borderLeft: "1px solid",
-          borderColor: "#e8ecef",
         }
       : {};
 
@@ -36,7 +34,7 @@ function ListItem({
         setSearchParams(searchParams);
         setIsOpen(false);
       }}
-      className={`flex cursor-pointer p-2 transition-all hover:rounded-lg hover:bg-white-shade-2 hover:text-black-shade-1 ${isActive ? "rounded-lg bg-white-shade-2 font-semibold text-black-shade-1" : ""} ${className} `}
+      className={`ml-[-1px] flex cursor-pointer p-2 transition-all hover:rounded-lg hover:bg-white-shade-2 hover:text-black-shade-1 ${isActive ? "rounded-lg bg-white-shade-2 font-semibold text-black-shade-1" : ""} ${className} `}
       style={style}
     >
       {children}

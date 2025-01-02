@@ -4,6 +4,7 @@ import Button from "../../ui/Button";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import OrderProducts from "./OrderProducts";
 import { useEffect } from "react";
+import { motion } from "motion/react";
 
 function Order() {
   const navigate = useNavigate();
@@ -30,22 +31,37 @@ function Order() {
             boxShadow: "0 32px 48px 0px hsl(0deg 0% 7% / 10%)",
           }}
         >
-          <div className="text-center max-sm:text-start">
+          <motion.div
+            className="text-center max-sm:text-start"
+            initial={{ scale: 0 }}
+            whileInView={{ scale: [0, 1.05, 1] }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+          >
             <p className="text-[28px] font-medium text-black-shade-4">
               Thank you! 🎉
             </p>
-            <p className="mt-4 text-[40px] font-medium leading-[44px] tracking-[-.04px]">
+            <p className="mt-4 text-wrap text-[40px] font-medium leading-[44px] tracking-[-.04px]">
               Your order has been received
             </p>
-          </div>
+          </motion.div>
           <OrderProducts cart={order?.cart} />
           <OrderDetails order={order} />
-          <Button
-            className={"h-[52px] w-[203px] text-nowrap rounded-full font-inter"}
-            onClick={handleClick}
+          <motion.div
+            initial={{ scale: 0 }}
+            whileInView={{ scale: [0, 1.05, 1] }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
           >
-            Purchase history
-          </Button>
+            <Button
+              className={
+                "h-[52px] w-[203px] text-nowrap rounded-full font-inter"
+              }
+              onClick={handleClick}
+            >
+              Purchase history
+            </Button>
+          </motion.div>
         </div>
       </div>
     </>

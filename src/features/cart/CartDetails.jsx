@@ -3,10 +3,12 @@ import { useTotalPrice } from "../../hooks/useTotalPrice";
 import { useNavigate, useSearchParams } from "react-router-dom";
 
 import CartMenuProduct from "./CartMenuProduct";
-import CartSummary from "./CartSummary";
+import CouponInput from "./CouponInput";
 import CartProduct from "./CartProduct";
 import Button from "../../ui/Button";
 import { formatCurrency } from "../../utils/formatCurrency";
+import SlideInFromLeftAnimation from "../../ui/SlideInFromLeftAnimation";
+import { motion } from "motion/react";
 
 function CartDetails() {
   const { cart } = useSelector((store) => store.cart);
@@ -43,8 +45,10 @@ function CartDetails() {
           </span>
         </div>
         <div className="w-full max-sm:hidden">
-          {cart.map((product) => (
-            <CartProduct product={product} key={product} />
+          {cart.map((product, idx) => (
+            <SlideInFromLeftAnimation key={product} delay={idx / 20}>
+              <CartProduct product={product} />
+            </SlideInFromLeftAnimation>
           ))}
         </div>
         <div className="hidden w-full max-sm:block">
@@ -60,7 +64,7 @@ function CartDetails() {
       </div>
 
       <div className="hidden max-xl:block">
-        <CartSummary />
+        <CouponInput />
       </div>
 
       <div className="h-[476px] w-full rounded-md border border-black-shade-4 p-6">
@@ -118,9 +122,16 @@ function CartDetails() {
           <p>Total</p>
           <p>{formatCurrency(totalPrice)}</p>
         </div>
-        <Button className={"h-[52px] text-lg"} onClick={handleClick}>
-          Checkout
-        </Button>
+        <motion.div
+          initial={{ opacity: 0.5, scale: 0 }}
+          whileInView={{ opacity: 1, scale: [0, 1.08, 1] }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          <Button className={"h-[52px] text-lg"} onClick={handleClick}>
+            Checkout
+          </Button>
+        </motion.div>
       </div>
     </div>
   );

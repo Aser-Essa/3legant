@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import { createContext, useContext } from "react";
 import CheckBox from "./CheckBox";
+import { motion } from "motion/react";
 
 const formContext = createContext();
 
@@ -30,7 +31,13 @@ function Input({
 }) {
   const { register, errors } = useContext(formContext);
   return (
-    <div className={`${type === "radio" ? "" : "h-full w-full"}`}>
+    <motion.div
+      className={`${type === "radio" ? "" : "h-full w-full"}`}
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.2, delay: 0.3 }}
+      viewport={{ once: true }}
+    >
       <input
         type={type}
         id={id}
@@ -49,7 +56,7 @@ function Input({
       <p className="mt-1 text-xs font-medium text-red-500">
         {errors[id]?.message}
       </p>
-    </div>
+    </motion.div>
   );
 }
 

@@ -16,7 +16,7 @@ function Home() {
       <Categories />
       <NewArrival />
       <SectionContainer>
-        <Services className="gap-6" />
+        <Services className="my-4 gap-6" />
       </SectionContainer>
       <Offers />
       <SectionContainer>

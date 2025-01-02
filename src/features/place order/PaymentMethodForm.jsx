@@ -1,6 +1,7 @@
 import { IoCardOutline } from "react-icons/io5";
 import Form from "../../ui/Form";
 import { useState } from "react";
+import SlideInFromLeftAnimation from "../../ui/SlideInFromLeftAnimation";
 
 function PaymentMethodForm() {
   const [dateValue, setDateValue] = useState("");
@@ -46,7 +47,9 @@ function PaymentMethodForm() {
           </label>
         </div>
         <Form.Label id="cardNumber">
-          <p className="font-inter text-xs font-bold">Card Number</p>
+          <SlideInFromLeftAnimation duration={0.5}>
+            <p className="font-inter text-xs font-bold">Card Number</p>
+          </SlideInFromLeftAnimation>
           <Form.Input
             type="text"
             id="cardNumber"
@@ -61,7 +64,9 @@ function PaymentMethodForm() {
         </Form.Label>
         <div className="flex items-center gap-6">
           <Form.Label id="expirationDate">
-            <p className="font-inter text-xs font-bold">Expiration date</p>
+            <SlideInFromLeftAnimation duration={0.5}>
+              <p className="font-inter text-xs font-bold">Expiration date</p>
+            </SlideInFromLeftAnimation>
             <Form.Input
               type="text"
               id="expirationDate"
@@ -75,7 +80,9 @@ function PaymentMethodForm() {
             />
           </Form.Label>
           <Form.Label id="CVCcode">
-            <p className="font-inter text-xs font-bold">CVC</p>
+            <SlideInFromLeftAnimation duration={0.5}>
+              <p className="font-inter text-xs font-bold">CVC</p>
+            </SlideInFromLeftAnimation>
             <Form.Input
               type="number"
               id="CVCcode"

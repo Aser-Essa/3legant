@@ -8,13 +8,9 @@ function Header() {
     <div className="flex h-[60px] items-center justify-between px-[160px] max-lg:px-20 max-md:px-10 max-sm:px-8">
       <div className="flex items-center gap-1">
         <FlyMenu />
-        <h1>
-          <Logo className={"max-sm:text-base"} />
-        </h1>
+        <Logo className={"max-sm:text-base"} />
       </div>
-      <span className="max-sm:hidden">
-        <NavLinks />
-      </span>
+      <NavLinks />
       <Icons />
     </div>
   );

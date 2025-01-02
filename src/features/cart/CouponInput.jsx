@@ -1,7 +1,7 @@
 import { RiDiscountPercentLine } from "react-icons/ri";
 import { useSelector } from "react-redux";
 
-function CartSummary() {
+function CouponInput() {
   const { cart } = useSelector((store) => store.cart);
 
   if (cart?.length <= 0) return;
@@ -24,10 +24,11 @@ function CartSummary() {
           placeholder="Coupon Code"
           className="h-full w-full placeholder:font-medium placeholder:text-black-shade-4 focus:outline-none"
         />
+
         <button className="text-black-shade-1">Apply</button>
       </div>
     </div>
   );
 }
 
-export default CartSummary;
+export default CouponInput;

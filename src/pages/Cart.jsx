@@ -1,7 +1,7 @@
 import SectionContainer from "../ui/SectionContainer";
 import CartDetails from "../features/cart/CartDetails";
-import CartSummary from "../features/cart/CartSummary";
 import OrderStages from "../features/place order/OrderStages";
+import CouponInput from "../features/cart/CouponInput";
 
 function Cart() {
   return (
@@ -9,7 +9,7 @@ function Cart() {
       <OrderStages title={"Cart"} />
       <CartDetails />
       <div className="block max-xl:hidden">
-        <CartSummary />
+        <CouponInput />
       </div>
     </SectionContainer>
   );

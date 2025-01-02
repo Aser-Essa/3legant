@@ -19,7 +19,14 @@ function BlogsCards() {
         data={articles}
         render={(el, idx) => {
           if (gridType == 3 || gridType == 4 || window.innerWidth < 638) {
-            return <BlogCard article={el} key={`${el} ${idx}`} />;
+            return (
+              <BlogCard
+                article={el}
+                key={`${el} ${idx}`}
+                animation={false}
+                ArrowOrDate={"date"}
+              />
+            );
           } else {
             return <DetaildBlogCard article={el} key={`${el} ${idx}`} />;
           }
