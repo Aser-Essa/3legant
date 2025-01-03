@@ -54,7 +54,7 @@ function App() {
   return (
     <MotionConfig
       transition={{ duration: 1 }}
-      reducedMotion={window.innerWidth > 640 ? "never" : "always"}
+      reducedMotion={window.innerWidth > 640 ? "never" : "never"}
     >
       <QueryClientProvider client={queryClient}>
         <ReactQueryDevtools initialIsOpen={false} />

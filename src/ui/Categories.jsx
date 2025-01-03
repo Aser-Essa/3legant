@@ -16,9 +16,9 @@ function Categories() {
           viewport={{ once: true }}
         />
         <div className="absolute left-12 top-12 font-medium text-black-shade-1">
-          <p className="text-[34px]">
+          <div className="text-[34px]">
             <TextAnimation text="Living Room" />
-          </p>
+          </div>
           <ArrowLink to={`/shop?category=Living_Room`}>Shop Now</ArrowLink>
         </div>
       </div>
@@ -32,9 +32,9 @@ function Categories() {
           viewport={{ once: true }}
         />
         <div className="absolute bottom-8 left-8 font-medium text-black-shade-1">
-          <p className="text-[34px] max-sm:text-[28px]">
+          <div className="text-[34px] max-sm:text-[28px]">
             <TextAnimation text="Bedroom" />
-          </p>
+          </div>
           <ArrowLink to={`/shop?category=Bedroom`}>Shop Now</ArrowLink>
         </div>
       </div>
@@ -48,9 +48,9 @@ function Categories() {
           viewport={{ once: true }}
         />
         <div className="absolute bottom-8 left-8 font-medium text-black-shade-1">
-          <p className="text-[34px] max-sm:text-[28px]">
+          <div className="text-[34px] max-sm:text-[28px]">
             <TextAnimation text="Kitchen" />
-          </p>
+          </div>
           <ArrowLink to={`/shop?category=Kitchen`}>Shop Now</ArrowLink>
         </div>
       </div>

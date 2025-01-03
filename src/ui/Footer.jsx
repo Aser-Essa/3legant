@@ -12,7 +12,7 @@ function Footer() {
       <div className="h-[249px] bg-black-shade-1 px-[160px] py-20 pb-8 max-lg:px-10 max-md:h-auto max-sm:h-auto max-sm:px-8 max-sm:py-12">
         <div className="flex items-center justify-between max-sm:flex-col">
           <div className="flex items-center divide-x-[1px] divide-black-shade-4 max-sm:mb-10 max-sm:flex-col max-sm:divide-x-0 max-sm:divide-y-[1px]">
-            <p className="pr-8 text-2xl font-medium leading-[24px] text-white max-sm:pb-4 max-sm:pr-0">
+            <div className="pr-8 text-2xl font-medium leading-[24px] text-white max-sm:pb-4 max-sm:pr-0">
               <Link to={"/"} className="flex">
                 <TextAnimation text="3legant" />
                 <motion.span
@@ -25,12 +25,12 @@ function Footer() {
                   .
                 </motion.span>
               </Link>
-            </p>
-            <p className="pl-8 font-inter text-sm leading-[22px] text-white-shade-1 max-sm:pl-0 max-sm:pt-4 max-sm:font-normal">
+            </div>
+            <div className="pl-8 font-inter text-sm leading-[22px] text-white-shade-1 max-sm:pl-0 max-sm:pt-4 max-sm:font-normal">
               <TextAnimation text="Gift & Decoration Store" />
-            </p>
+            </div>
           </div>
-          <ul className="flex items-center gap-9 text-nowrap font-inter text-sm font-medium text-[#fefefe] max-sm:flex-col max-sm:gap-8 max-sm:font-normal">
+          <ul className="flex items-center gap-10 text-nowrap font-inter text-sm font-medium text-[#fefefe] max-sm:flex-col max-sm:gap-8 max-sm:font-normal">
             <li>
               <NavLink to={"/"}>
                 <SlideInFromLeftAnimation duration={0.5} delay={0.1}>
@@ -68,11 +68,11 @@ function Footer() {
                 Copyright © 2023 3legant. All rights reserved
               </p>
             </SlideInFromLeftAnimation>
-            <div className="flex items-center gap-6">
+            <div className="flex items-center gap-7">
               <SlideInFromLeftAnimation duration={0.5} delay={0.25}>
                 <p className="font-semibold">Privacy Policy</p>
               </SlideInFromLeftAnimation>
-              <SlideInFromLeftAnimation duration={0.5} delay={0.3}>
+              <SlideInFromLeftAnimation duration={0.5} delay={0.35}>
                 <p className="font-semibold">Terms of Use</p>
               </SlideInFromLeftAnimation>
             </div>
