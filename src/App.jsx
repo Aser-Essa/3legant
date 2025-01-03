@@ -22,6 +22,7 @@ import Blogs from "./pages/Blogs";
 import Blog from "./pages/Blog";
 import ScrollToTop from "./ui/ScrollToTop";
 import { useEffect } from "react";
+import { MotionConfig } from "motion/react";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -51,7 +52,10 @@ function App() {
   }, []);
 
   return (
-    <>
+    <MotionConfig
+      transition={{ duration: 1 }}
+      reducedMotion={window.innerWidth > 640 ? "never" : "user"}
+    >
       <QueryClientProvider client={queryClient}>
         <ReactQueryDevtools initialIsOpen={false} />
         <BrowserRouter>
@@ -113,7 +117,7 @@ function App() {
           style: { fontSize: "16px" },
         }}
       />
-    </>
+    </MotionConfig>
   );
 }
 
