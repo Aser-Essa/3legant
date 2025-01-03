@@ -14,7 +14,7 @@ function SlideInFromLeftAnimation({
         initial={{ opacity: 0, translateX: "-100%" }}
         whileInView={{ opacity: 1, translateX: 0 }}
         transition={{ duration: duration, delay: delay }}
-        viewport={{ once: true }}
+        viewport={{ once: true, amount: 0 }}
       >
         {children}
       </motion.div>

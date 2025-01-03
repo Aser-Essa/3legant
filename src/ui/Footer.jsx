@@ -30,7 +30,7 @@ function Footer() {
               <TextAnimation text="Gift & Decoration Store" />
             </p>
           </div>
-          <ul className="flex items-center gap-10 text-nowrap font-inter text-sm font-medium text-[#fefefe] max-sm:flex-col max-sm:gap-8 max-sm:font-normal">
+          <ul className="flex items-center gap-9 text-nowrap font-inter text-sm font-medium text-[#fefefe] max-sm:flex-col max-sm:gap-8 max-sm:font-normal">
             <li>
               <NavLink to={"/"}>
                 <SlideInFromLeftAnimation duration={0.5} delay={0.1}>
@@ -68,12 +68,12 @@ function Footer() {
                 Copyright © 2023 3legant. All rights reserved
               </p>
             </SlideInFromLeftAnimation>
-            <div className="flex items-center gap-7">
+            <div className="flex items-center gap-6">
               <SlideInFromLeftAnimation duration={0.5} delay={0.25}>
                 <p className="font-semibold">Privacy Policy</p>
               </SlideInFromLeftAnimation>
-              <SlideInFromLeftAnimation duration={0.5} delay={0.35}>
-                <p className="font-semibold">Terms Of Use</p>
+              <SlideInFromLeftAnimation duration={0.5} delay={0.3}>
+                <p className="font-semibold">Terms of Use</p>
               </SlideInFromLeftAnimation>
             </div>
           </div>
