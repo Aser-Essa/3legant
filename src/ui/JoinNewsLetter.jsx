@@ -1,10 +1,10 @@
 import { MdOutlineMailOutline } from "react-icons/md";
-import { motion } from "motion/react";
+import { AnimatePresence, motion } from "motion/react";
 import TextRevealAnimation from "./TextRevealAnimation";
 
 function JoinNewsLetter() {
   return (
-    <>
+    <AnimatePresence initial={!(window.innerWidth >= 680)}>
       <div className="relative mt-20 h-[360px] overflow-hidden bg-[#F2F4F6] max-sm:mt-10">
         <motion.img
           src="/category3.png"
@@ -52,7 +52,7 @@ function JoinNewsLetter() {
           </motion.div>
         </div>
       </div>
-    </>
+    </Anim>
   );
 }
 
