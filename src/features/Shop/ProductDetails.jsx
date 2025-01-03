@@ -34,7 +34,7 @@ function ProductDetails() {
   const { wishlist } = useSelector((store) => store.wishlist);
   const quantity = cart?.filter((el) => el?.id == product?.id)[0]?.quantity;
   const dispatch = useDispatch();
-  const isInwishlist = wishlist.map((el) => el.id).includes(product.id);
+  const isInwishlist = wishlist.map((el) => el.id).includes(product?.id);
 
   function handleClickAddCart() {
     const isInWishlist = wishlist?.map((el) => el.id)?.includes(product?.id);
