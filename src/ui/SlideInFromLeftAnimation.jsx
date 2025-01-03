@@ -8,7 +8,7 @@ function SlideInFromLeftAnimation({
   delay = 0,
 }) {
   return (
-    <div className={`min-h-fit w-[100.5%] overflow-hidden ${className}`}>
+    <div className={`min-h-fit overflow-hidden ${className}`}>
       <motion.div
         className="w-full"
         initial={{ opacity: 0, translateX: "-100%" }}

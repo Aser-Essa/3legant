@@ -4,7 +4,7 @@ import { motion } from "motion/react";
 function TextRevealAnimation({ color, children, delay = 0.4 }) {
   return (
     <motion.div
-      className="relative flex-shrink-0 overflow-hidden text-nowrap"
+      className="relative overflow-hidden text-nowrap"
       initial={{ opacity: 0, width: 0 }}
       whileInView={{ opacity: 1, width: "100%" }}
       transition={{ duration: 1.5, delay: delay }}
