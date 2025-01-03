@@ -73,7 +73,7 @@ function Footer() {
                 <p className="font-semibold">Privacy Policy</p>
               </SlideInFromLeftAnimation>
               <SlideInFromLeftAnimation duration={0.5} delay={0.35}>
-                <p className="font-semibold">Terms of Use</p>
+                <p className="font-semibold">Terms Of Use</p>
               </SlideInFromLeftAnimation>
             </div>
           </div>
