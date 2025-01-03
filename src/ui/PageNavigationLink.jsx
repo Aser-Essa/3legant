@@ -5,7 +5,7 @@ import { motion } from "motion/react";
 // eslint-disable-next-line react/prop-types
 function PageNavigationLink({ title, link }) {
   return (
-    <div className="overflow-hidden">
+    <div className="flex-shrink-0 overflow-hidden">
       <motion.div
         initial={{ opacity: 0, translateX: 0 }}
         animate={{ opacity: 1, translateX: [-100, 5, 0] }}

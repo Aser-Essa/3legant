@@ -8,7 +8,7 @@ import {
   removeFromCart,
 } from "../../Redux/cartSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { GoHeart } from "react-icons/go";
+import { GoHeart, GoHeartFill } from "react-icons/go";
 import Button from "../../ui/Button";
 import ProductImages from "./ProductImages";
 import PageNavigation from "../../ui/PageNavigation";
@@ -34,6 +34,7 @@ function ProductDetails() {
   const { wishlist } = useSelector((store) => store.wishlist);
   const quantity = cart?.filter((el) => el?.id == product?.id)[0]?.quantity;
   const dispatch = useDispatch();
+  const isInwishlist = wishlist.map((el) => el.id).includes(product.id);
 
   function handleClickAddCart() {
     const isInWishlist = wishlist?.map((el) => el.id)?.includes(product?.id);
@@ -47,6 +48,10 @@ function ProductDetails() {
     const isInCart = cart?.map((el) => el.id)?.includes(product?.id);
     if (isInCart) {
       dispatch(deleteItemFromCart(product?.id));
+    }
+    if (isInwishlist) {
+      dispatch(deleteItemFromWishlist(product?.id));
+      return;
     }
     dispatch(addToWishlist(product));
   }
@@ -88,8 +93,11 @@ function ProductDetails() {
           <MeasurmentAndColor product={product} />
           <div className="flex flex-col gap-4 border-b border-white-shade-1 py-8 font-inter max-xl:py-6">
             <div className="flex items-center gap-6 max-xl:gap-2">
-              <SlideInFromLeftAnimation delay={0.3}>
-                <div className="flex h-[52px] w-[127px] items-center justify-between rounded-lg bg-[#f5f5f5] px-4 py-3 text-[20px] font-light max-sm:h-8 max-sm:rounded-[4px] max-sm:py-1 max-sm:text-sm">
+              <SlideInFromLeftAnimation
+                className="flex h-[52px] w-[127px] items-center justify-between rounded-lg bg-[#f5f5f5] px-4 py-3 text-[20px] font-light max-sm:h-8 max-sm:rounded-[4px] max-sm:py-1 max-sm:text-sm"
+                delay={0.3}
+              >
+                <div className="flex items-center justify-between">
                   <button onClick={handleDecrease}>-</button>
                   <span className="text-base font-semibold">
                     {quantity || 0}
@@ -97,12 +105,17 @@ function ProductDetails() {
                   <button onClick={handleIncrease}>+</button>
                 </div>
               </SlideInFromLeftAnimation>
-              <SlideInFromRightAnimation delay={0.3}>
-                <button
-                  className="flex h-[52px] w-[357px] items-center justify-center gap-2 rounded-lg border border-black-shade-1 px-10 py-2.5 font-inter text-lg font-medium text-black-shade-1 max-sm:h-8 max-sm:rounded-[4px] max-sm:py-1 max-sm:text-sm"
-                  onClick={handleClickAddWishlist}
-                >
-                  <GoHeart className="h-6 w-6 max-sm:h-4 max-sm:w-4" />
+              <SlideInFromRightAnimation
+                className="flex h-[52px] w-[357px] cursor-pointer items-center justify-center rounded-lg border border-black-shade-1 px-10 py-2.5 font-inter text-lg font-medium text-black-shade-1 max-sm:h-8 max-sm:rounded-[4px] max-sm:py-1 max-sm:text-sm"
+                delay={0.3}
+                onClick={handleClickAddWishlist}
+              >
+                <button className="flex items-center gap-2">
+                  {isInwishlist ? (
+                    <GoHeartFill className="h-6 w-6 text-red-500 max-sm:h-4 max-sm:w-4" />
+                  ) : (
+                    <GoHeart className="h-6 w-6 max-sm:h-4 max-sm:w-4" />
+                  )}
                   <p>Wishlist</p>
                 </button>
               </SlideInFromRightAnimation>

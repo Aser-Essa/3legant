@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import { PiHeartBold } from "react-icons/pi";
+import { GoHeartFill } from "react-icons/go";
 import Stars from "../../ui/Stars";
 import { formatCurrency } from "../../utils/formatCurrency";
 import { GoHeart } from "react-icons/go";
@@ -23,6 +24,7 @@ function DetaildProductCard({ product, gridType }) {
   const dispatch = useDispatch();
   const { cart } = useSelector((store) => store.cart);
   const { wishlist } = useSelector((store) => store.wishlist);
+  const isInwishlist = wishlist.map((el) => el.id).includes(product.id);
 
   function handleClickAddCart() {
     const isInWishlist = wishlist?.map((el) => el.id)?.includes(product?.id);
@@ -36,6 +38,10 @@ function DetaildProductCard({ product, gridType }) {
     const isInCart = cart?.map((el) => el.id)?.includes(product?.id);
     if (isInCart) {
       dispatch(deleteItemFromCart(product?.id));
+    }
+    if (isInwishlist) {
+      dispatch(deleteItemFromWishlist(product?.id));
+      return;
     }
     dispatch(addToWishlist(product));
   }
@@ -110,7 +116,11 @@ function DetaildProductCard({ product, gridType }) {
             onClick={handleClickAddWishlist}
             ref={refAddWishlist}
           >
-            <GoHeart className="h-5 w-5" />
+            {isInwishlist ? (
+              <GoHeartFill className="h-5 w-5 text-red-500" />
+            ) : (
+              <GoHeart className="h-5 w-5" />
+            )}
             <p>Wishlist</p>
           </button>
         </div>

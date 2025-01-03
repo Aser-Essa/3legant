@@ -6,7 +6,7 @@ import { TbBrandYoutube } from "react-icons/tb";
 import { createPortal } from "react-dom";
 import { useSelector } from "react-redux";
 import { useUser } from "../hooks/useUser";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import { FaBars } from "react-icons/fa6";
 
 function FlyMenu() {
@@ -115,7 +115,10 @@ function FlyMenu() {
               </ul>
 
               <div className="absolute bottom-4 mt-auto w-[calc(100%-48px)]">
-                <span className="flex h-10 items-center justify-between border-b border-white-shade-1 py-2">
+                <NavLink
+                  to={"/cart"}
+                  className="flex h-10 items-center justify-between border-b border-white-shade-1 py-2"
+                >
                   <p className="text-lg font-medium text-black-shade-4">Cart</p>
                   <div className="flex cursor-pointer items-center gap-[6px]">
                     <img src="/shopping bag.png" className="h-6 w-6" />
@@ -123,8 +126,11 @@ function FlyMenu() {
                       {cart?.length}
                     </span>
                   </div>
-                </span>
-                <span className="flex h-10 items-center justify-between border-b border-white-shade-1 py-2">
+                </NavLink>
+                <NavLink
+                  to={"/wishlist"}
+                  className="flex h-10 items-center justify-between border-b border-white-shade-1 py-2"
+                >
                   <p className="text-lg font-medium text-black-shade-4">
                     Wishlist
                   </p>
@@ -134,7 +140,7 @@ function FlyMenu() {
                       {wishlist?.length}
                     </span>
                   </div>
-                </span>
+                </NavLink>
                 {isAuthenticated ? (
                   <button
                     onClick={handleClickMyAccount}

@@ -26,7 +26,6 @@ function ProductCard({ product, delay, animation }) {
   const dispatch = useDispatch();
   const isNew = new Date(product?.Date)?.getTime() > new Date("2024-6-01");
   const [isHovered, setIsHovered] = useState(false);
-
   const isInwishlist = wishlist.map((el) => el.id).includes(product.id);
 
   function handleClickAddCart() {

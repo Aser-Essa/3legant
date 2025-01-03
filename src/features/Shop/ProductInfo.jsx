@@ -12,7 +12,7 @@ function ProductInfo() {
         <TextAnimation text={"Additional Info"} />
       </div>
       <div className="mb-7">
-        <TextRevealAnimation>
+        <TextRevealAnimation delay={0.2}>
           <p className="mb-3 text-[20px] font-medium text-black-shade-4">
             Details
           </p>
@@ -24,7 +24,7 @@ function ProductInfo() {
         </SlideInFromLeftAnimation>
       </div>
       <div>
-        <TextRevealAnimation delay={0.6}>
+        <TextRevealAnimation delay={0.2}>
           <p className="my-3 text-[20px] font-medium text-black-shade-4">
             Packaging
           </p>

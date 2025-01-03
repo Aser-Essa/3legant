@@ -2,6 +2,8 @@ import { FaAngleDown, FaAngleUp } from "react-icons/fa6";
 import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import useLogout from "../authentication/useLogout";
+import { AnimatePresence } from "motion/react";
+import { motion } from "motion/react";
 
 function MyAccountNavMobile() {
   const [isOpen, setIsOpen] = useState();
@@ -27,36 +29,48 @@ function MyAccountNavMobile() {
         <p className="text-nowrap">{type}</p>
         {isOpen ? <FaAngleUp /> : <FaAngleDown />}
       </div>
-      {isOpen && (
-        <ul
-          className={`absolute z-50 w-[100%] space-y-[10px] rounded-xl border border-white-shade-2 bg-white p-2 font-inter text-black-shade-4 max-lg:relative`}
-        >
-          <NavLink
-            to={"/myAccount"}
-            className="account inline-block w-full py-2"
+      <AnimatePresence>
+        {isOpen && (
+          <motion.ul
+            className={`absolute z-50 w-[100%] space-y-[10px] overflow-hidden rounded-xl border border-white-shade-2 bg-white p-2 font-inter text-black-shade-4 max-lg:relative`}
+            initial={{ height: 0 }}
+            animate={{ height: "fit-content" }}
+            exit={{ height: 0 }}
+            transition={{ duration: 0.35 }}
           >
-            Account
-          </NavLink>
-          <NavLink to={"/address"} className="account inline-block w-full py-2">
-            Address
-          </NavLink>
-          <NavLink to={"/orders"} className="account inline-block w-full py-2">
-            Orders
-          </NavLink>
-          <NavLink
-            to={"/wishlist"}
-            className="account inline-block w-full py-2"
-          >
-            Wishlist
-          </NavLink>
-          <button
-            className="inline-block w-full py-2 text-start"
-            onClick={handleClick}
-          >
-            Log Out
-          </button>
-        </ul>
-      )}
+            <NavLink
+              to={"/myAccount"}
+              className="account inline-block w-full py-2"
+            >
+              Account
+            </NavLink>
+            <NavLink
+              to={"/address"}
+              className="account inline-block w-full py-2"
+            >
+              Address
+            </NavLink>
+            <NavLink
+              to={"/orders"}
+              className="account inline-block w-full py-2"
+            >
+              Orders
+            </NavLink>
+            <NavLink
+              to={"/wishlist"}
+              className="account inline-block w-full py-2"
+            >
+              Wishlist
+            </NavLink>
+            <button
+              className="inline-block w-full py-2 text-start"
+              onClick={handleClick}
+            >
+              Log Out
+            </button>
+          </motion.ul>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
