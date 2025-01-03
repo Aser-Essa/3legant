@@ -52,7 +52,7 @@ function JoinNewsLetter() {
           </motion.div>
         </div>
       </div>
-    </Anim>
+    </AnimatePresence>
   );
 }
 
