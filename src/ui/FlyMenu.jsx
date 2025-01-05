@@ -41,18 +41,16 @@ function FlyMenu() {
   }
 
   const handleTouchStart = (e) => {
-    e.stopPropagation();
     touchStartX.current = e.touches[0].clientX;
   };
 
   const handleTouchMove = (e) => {
-    e.stopPropagation();
     touchEndX.current = e.touches[0].clientX;
   };
 
   const handleTouchEnd = () => {
     const swipeDistance = touchStartX.current - touchEndX.current;
-    if (swipeDistance > 290) {
+    if (swipeDistance > 60) {
       handleClose();
     }
   };
@@ -74,13 +72,13 @@ function FlyMenu() {
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
+            onClickCapture={() => setIsOpen(true)}
           >
             <div className="absolute left-0 top-0 h-full w-full bg-white p-6">
               <div className="flex items-center justify-between">
                 <Link to={"/"}>
                   <h1 className="text-2xl font-medium max-sm:text-base">
                     3legant.
-                    {touchStartX.current - touchEndX.current}
                   </h1>
                 </Link>
                 <div className="relative z-[100000]" onClick={handleClose}>

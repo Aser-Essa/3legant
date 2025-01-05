@@ -51,6 +51,7 @@ function CartMenu({ isOpen, setIsOpen }) {
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
+            onClickCapture={() => setIsOpen(true)}
           >
             <p className="mb-3 text-[28px] font-medium max-sm:mb-4">Cart</p>
             <div className="flex h-[calc(100%-55px)] flex-col justify-between">

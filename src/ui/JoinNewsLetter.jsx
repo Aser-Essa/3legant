@@ -1,5 +1,5 @@
 import { MdOutlineMailOutline } from "react-icons/md";
-import { AnimatePresence, motion } from "motion/react";
+import { motion } from "motion/react";
 import TextRevealAnimation from "./TextRevealAnimation";
 
 function JoinNewsLetter() {
