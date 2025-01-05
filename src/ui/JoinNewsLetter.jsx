@@ -23,17 +23,15 @@ function JoinNewsLetter() {
         viewport={{ once: true }}
       />
       <div className="flex h-full flex-col items-center justify-center text-black-shade-1">
-        <div className="mb-2 text-[40px] font-medium leading-[44px] tracking-[-0.4px] max-sm:text-[34px]">
-          <div color={"#F2F4F6"} className="w-[50%]">
-            <p className="text-nowrap">Join Our Newsletter</p>
-          </div>
+        <div className="mb-2 w-[50%] text-[40px] font-medium leading-[44px] tracking-[-0.4px] max-sm:text-[34px]">
+          <p className="text-nowrap">Join Our Newsletter</p>
         </div>
-        <div className="mx-auto font-inter text-lg max-sm:text-sm">
-          <TextRevealAnimation color={"#F2F4F6"}>
-            <p className="text-nowrap">
-              Sign up for deals, new products and promotions
-            </p>
-          </TextRevealAnimation>
+        <div className="w-[50%] font-inter text-lg max-sm:text-sm">
+          {/* <TextRevealAnimation color={"#F2F4F6"}> */}
+          <p className="text-nowrap">
+            Sign up for deals, new products and promotions
+          </p>
+          {/* </TextRevealAnimation> */}
         </div>
         <motion.div
           className="mt-8 flex h-[48.8px] w-[488px] items-center overflow-hidden border-b-[.5px] border-[#6c727580] font-inter font-medium text-black-shade-4 max-lg:w-[400px] max-sm:mx-auto max-sm:w-[311px]"
