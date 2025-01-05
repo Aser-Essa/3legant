@@ -80,8 +80,8 @@ function FlyMenu() {
                     3legant.
                   </h1>
                 </Link>
-                <div onClick={() => setIsOpen((open) => !open)}>
-                  <IoCloseOutline className="relative z-[100000] h-6 w-6 text-black-shade-4" />
+                <div className="relative z-[100000]" onClick={handleClose}>
+                  <IoCloseOutline className="h-6 w-6 text-black-shade-4" />
                 </div>
               </div>
               <div className="my-4 flex h-[46px] items-center gap-2 rounded-md border border-black-shade-4 px-4">
