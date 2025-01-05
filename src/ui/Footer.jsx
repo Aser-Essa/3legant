@@ -79,7 +79,7 @@ function Footer() {
               <SlideInFromLeftAnimation
                 duration={0.5}
                 delay={0.35}
-                className={"w-[100.1%]"}
+                className={"w-[100%]"}
               >
                 <p className="text-nowrap font-semibold">Terms of Use</p>
               </SlideInFromLeftAnimation>
