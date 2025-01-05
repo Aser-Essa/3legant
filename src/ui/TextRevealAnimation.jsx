@@ -6,7 +6,7 @@ function TextRevealAnimation({ color, children, delay = 0.4 }) {
     <motion.div
       className="relative overflow-hidden text-nowrap"
       initial={{ opacity: 0, width: 0 }}
-      whileInView={{ opacity: 1, width: "10%" }}
+      whileInView={{ opacity: 1, width: "100%" }}
       transition={{ duration: 1.5, delay: delay }}
       viewport={{ once: true }}
     >
