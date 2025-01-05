@@ -24,9 +24,7 @@ function JoinNewsLetter() {
       />
       <div className="flex h-full flex-col items-center justify-center text-black-shade-1">
         <div className="mb-2 text-[40px] font-medium leading-[44px] tracking-[-0.4px] max-sm:text-[34px]">
-          <TextRevealAnimation color={"#F2F4F6"}>
-            <p className="text-nowrap">Join Our Newsletter</p>
-          </TextRevealAnimation>
+          <p className="text-nowrap">Join Our Newsletter</p>
         </div>
         <div className="mx-auto font-inter text-lg max-sm:text-sm">
           <TextRevealAnimation color={"#F2F4F6"}>
