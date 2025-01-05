@@ -23,10 +23,18 @@ function JoinNewsLetter() {
         viewport={{ once: true }}
       />
       <div className="flex h-full flex-col items-center justify-center text-black-shade-1">
-        <div className="mb-2 w-[50%] text-[40px] font-medium leading-[44px] tracking-[-0.4px] max-sm:text-[34px]">
-          <p className="text-nowrap">Join Our Newsletter</p>
+        <div className="mb-2 text-[40px] font-medium leading-[44px] tracking-[-0.4px] max-sm:text-[34px]">
+          <motion.div
+            className="relative overflow-hidden text-nowrap"
+            initial={{ opacity: 0, width: 0 }}
+            whileInView={{ opacity: 1, width: "100%" }}
+            transition={{ duration: 1.5, delay: 0 }}
+            viewport={{ once: true }}
+          >
+            <p className="text-nowrap">Join Our Newsletter</p>
+          </motion.div>
         </div>
-        <div className="w-[50%] font-inter text-lg max-sm:text-sm">
+        <div className="font-inter text-lg max-sm:text-sm">
           {/* <TextRevealAnimation color={"#F2F4F6"}> */}
           <p className="text-nowrap">
             Sign up for deals, new products and promotions
