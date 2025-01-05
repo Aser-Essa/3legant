@@ -52,7 +52,7 @@ function FlyMenu() {
 
   const handleTouchEnd = () => {
     const swipeDistance = touchStartX.current - touchEndX.current;
-    if (swipeDistance > 120) {
+    if (swipeDistance > 290) {
       handleClose();
     }
   };
