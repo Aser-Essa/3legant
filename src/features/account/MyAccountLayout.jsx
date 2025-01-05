@@ -19,7 +19,7 @@ function MyAccountLayout() {
   return (
     <>
       <SectionContainer className={"py-20"}>
-        <div className="mx-auto w-fit pb-20 text-center text-[54px] font-medium">
+        <div className="mx-auto w-fit pb-20 text-center text-[52px] font-medium">
           <TextAnimation text={"My Account"} />
         </div>
         <div className="flex gap-2 overflow-hidden max-lg:flex-col max-lg:items-center">
