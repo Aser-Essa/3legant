@@ -78,6 +78,7 @@ function FlyMenu() {
                 <Link to={"/"}>
                   <h1 className="text-2xl font-medium max-sm:text-base">
                     3legant.
+                    {touchStartX.current}
                   </h1>
                 </Link>
                 <div className="relative z-[100000]" onClick={handleClose}>
