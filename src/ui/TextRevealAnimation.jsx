@@ -11,7 +11,7 @@ function TextRevealAnimation({ color, children, delay = 0.4 }) {
       viewport={{ once: true }}
     >
       <motion.div
-        className="relative h-full w-[100%]"
+        className="absolute h-full w-[100%]"
         style={{
           backgroundImage: `linear-gradient(90deg, transparent 85%, ${color})`,
         }}
