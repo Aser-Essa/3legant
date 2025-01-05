@@ -97,7 +97,7 @@ function ProductDetails() {
                 className="flex h-[52px] w-[127px] items-center justify-between rounded-lg bg-[#f5f5f5] px-4 py-3 text-[20px] font-light max-sm:h-8 max-sm:rounded-[4px] max-sm:py-1 max-sm:text-sm"
                 delay={0.3}
               >
-                <div className="flex items-center justify-between">
+                <div className="flex w-full items-center justify-between">
                   <button onClick={handleDecrease}>-</button>
                   <span className="text-base font-semibold">
                     {quantity || 0}

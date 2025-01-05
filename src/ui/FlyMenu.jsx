@@ -75,13 +75,14 @@ function FlyMenu() {
           >
             <div className="absolute left-0 top-0 h-full w-full bg-white p-6">
               <div className="flex items-center justify-between">
-                <h1 className="text-2xl font-medium max-sm:text-base">
-                  3legant.
-                </h1>
-                <IoCloseOutline
-                  className="relative z-[100000] h-6 w-6 text-black-shade-4"
-                  onClick={handleClose}
-                />
+                <Link to={"/"}>
+                  <h1 className="text-2xl font-medium max-sm:text-base">
+                    3legant.
+                  </h1>
+                </Link>
+                <div onClick={handleClose}>
+                  <IoCloseOutline className="relative z-[100000] h-6 w-6 text-black-shade-4" />
+                </div>
               </div>
               <div className="my-4 flex h-[46px] items-center gap-2 rounded-md border border-black-shade-4 px-4">
                 <img src="/search 02.png" className="h-6 w-6 cursor-pointer" />

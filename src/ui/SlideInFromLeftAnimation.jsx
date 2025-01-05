@@ -10,6 +10,7 @@ function SlideInFromLeftAnimation({
   return (
     <div className={`min-h-fit overflow-hidden ${className}`}>
       <motion.div
+        className="w-full"
         initial={{ opacity: 0, translateX: "-90%" }}
         whileInView={{ opacity: 1, translateX: 0 }}
         transition={{ duration: duration, delay: delay }}
