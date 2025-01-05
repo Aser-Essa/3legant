@@ -29,13 +29,13 @@ function JoinNewsLetter() {
               <p className="text-nowrap">Join Our Newsletter</p>
             </TextRevealAnimation>
           </div>
-          <div className="font-inter text-lg max-sm:text-sm">
+          {/* <div className="font-inter text-lg max-sm:text-sm">
             <TextRevealAnimation color={"#F2F4F6"}>
               <p className="text-nowrap">
                 Sign up for deals, new products and promotions
               </p>
             </TextRevealAnimation>
-          </div>
+          </div> */}
           <motion.div
             className="mx-auto mt-8 flex h-[48.8px] w-[488px] items-center overflow-hidden border-b-[.5px] border-[#6c727580] font-inter font-medium text-black-shade-4 max-lg:w-[400px] max-sm:mx-auto max-sm:w-[311px]"
             initial={{ height: 0 }}
