@@ -21,12 +21,12 @@ function FlyMenu() {
   const touchEndX = useRef(0);
 
   function handleOpen() {
-    setIsOpen((open) => !open);
+    setIsOpen(true);
     document.body.style.overflowY = "hidden";
   }
 
   function handleClose() {
-    setIsOpen((open) => !open);
+    setIsOpen(false);
     document.body.style.overflowY = "auto";
   }
 
