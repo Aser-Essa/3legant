@@ -23,7 +23,7 @@ function JoinNewsLetter() {
           transition={{ duration: 0.6, delay: 0.1 }}
           viewport={{ once: true }}
         />
-        <div className="mx-auto flex h-full w-full flex-col justify-center text-center text-black-shade-1 max-sm:w-full">
+        <div className="mx-auto flex h-full flex-col justify-center text-center text-black-shade-1">
           <div className="mx-auto mb-2 text-[40px] font-medium leading-[44px] tracking-[-0.4px] max-sm:text-[34px]">
             <TextRevealAnimation color={"#F2F4F6"}>
               <p className="text-nowrap">Join Our Newsletter</p>
