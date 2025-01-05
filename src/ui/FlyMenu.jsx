@@ -80,7 +80,7 @@ function FlyMenu() {
                     3legant.
                   </h1>
                 </Link>
-                <div onClick={handleClose}>
+                <div onClick={() => setIsOpen((open) => !open)}>
                   <IoCloseOutline className="relative z-[100000] h-6 w-6 text-black-shade-4" />
                 </div>
               </div>
