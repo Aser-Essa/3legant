@@ -105,6 +105,7 @@ function ProductDetails() {
                   <button onClick={handleIncrease}>+</button>
                 </div>
               </SlideInFromLeftAnimation>
+
               <SlideInFromRightAnimation
                 className="flex h-[52px] w-[357px] cursor-pointer items-center justify-center rounded-lg border border-black-shade-1 px-10 py-2.5 font-inter text-lg font-medium text-black-shade-1 max-sm:h-8 max-sm:rounded-[4px] max-sm:py-1 max-sm:text-sm"
                 delay={0.3}

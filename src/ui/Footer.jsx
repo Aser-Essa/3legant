@@ -47,11 +47,7 @@ function Footer() {
             </li>
             <li>
               <NavLink to={"/blog"}>
-                <SlideInFromLeftAnimation
-                  duration={0.5}
-                  delay={0.3}
-                  className={"w-[100.1%]"}
-                >
+                <SlideInFromLeftAnimation duration={0.5} delay={0.3}>
                   <p className="text-[#fefefe]">Blog</p>
                 </SlideInFromLeftAnimation>
               </NavLink>

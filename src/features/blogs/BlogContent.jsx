@@ -1,4 +1,5 @@
 import useBlog from "./useBlog";
+import { motion } from "motion/react";
 
 function BlogContent() {
   const { data: article } = useBlog();
@@ -29,11 +30,18 @@ function BlogContent() {
                   <div className="mt-4 flex flex-col">
                     {idx == 3 && (
                       <div className="my-10 flex h-[729px] items-center gap-6 overflow-hidden">
-                        {images?.slice(0, 2)?.map((el) => (
-                          <img
+                        {images?.slice(0, 2)?.map((el, idx) => (
+                          <motion.img
                             src={el}
                             key={el}
                             className="h-full w-[50%] scale-y-150 max-sm:h-[500px]"
+                            initial={{
+                              opacity: 0,
+                              translateX: idx == 0 ? "-100%" : "50%",
+                            }}
+                            whileInView={{ opacity: 1, translateX: 0 }}
+                            transition={{ duration: 0.6, delay: 0.5 }}
+                            viewport={{ once: true }}
                           />
                         ))}
                       </div>
@@ -51,11 +59,18 @@ function BlogContent() {
           <div>
             <p>{firstParagraph}</p>
             <div className="my-10 flex items-center gap-6 max-md:flex-col">
-              {images?.slice(0, 2)?.map((el) => (
-                <img
+              {images?.slice(0, 2)?.map((el, idx) => (
+                <motion.img
                   src={el}
                   key={el}
                   className="h-[729px] w-[50%] max-md:w-full max-sm:h-[500px]"
+                  initial={{
+                    opacity: 0,
+                    translateX: idx == 0 ? "-100%" : "50%",
+                  }}
+                  whileInView={{ opacity: 1, translateX: 0 }}
+                  transition={{ duration: 0.6, delay: 0.5 }}
+                  viewport={{ once: true }}
                 />
               ))}
             </div>

@@ -15,7 +15,7 @@ function TextAnimation({ text, delay = 0 }) {
               key={`${el} ${Math.random()} ${idx}`}
               initial={{ opacity: 0, translateX: "-25%" }}
               whileInView={{ opacity: 1, translateX: "0" }}
-              transition={{ duration: 0.4, delay: `${idx / 20 + delay}` }}
+              transition={{ duration: 0.4, delay: `${idx / 30 + delay}` }}
               viewport={{ once: true }}
             >
               {el}

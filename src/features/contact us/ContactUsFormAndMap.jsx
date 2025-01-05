@@ -62,7 +62,7 @@ function ContactUsFormAndMap() {
           <motion.div
             initial={{ opacity: 0.5, scale: 0 }}
             whileInView={{ opacity: 1, scale: [0, 1.08, 1] }}
-            transition={{ duration: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
           >
             <Button
@@ -81,7 +81,7 @@ function ContactUsFormAndMap() {
             scale: 0,
           }}
           whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
           viewport={{ once: true }}
         >
           <img
