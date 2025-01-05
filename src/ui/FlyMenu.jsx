@@ -41,10 +41,12 @@ function FlyMenu() {
   }
 
   const handleTouchStart = (e) => {
+    e.stopPropagation();
     touchStartX.current = e.touches[0].clientX;
   };
 
   const handleTouchMove = (e) => {
+    e.stopPropagation();
     touchEndX.current = e.touches[0].clientX;
   };
 
