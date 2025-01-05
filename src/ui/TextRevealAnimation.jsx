@@ -9,6 +9,7 @@ function TextRevealAnimation({ color, children, delay = 0.4 }) {
       whileInView={{ opacity: 1, width: "100%" }}
       transition={{ duration: 1.5, delay: delay }}
       viewport={{ once: true }}
+      style={{ transformOrigin: "left" }}
     >
       <motion.div
         className="absolute h-full w-[100%]"
