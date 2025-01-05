@@ -68,19 +68,11 @@ function Footer() {
                 Copyright © 2023 3legant. All rights reserved
               </p>
             </SlideInFromLeftAnimation>
-            <div className="flex items-center gap-7 text-nowrap">
-              <SlideInFromLeftAnimation
-                duration={0.5}
-                delay={0.25}
-                className={"w-[107%]"}
-              >
+            <div className="flex items-center justify-center gap-7 text-nowrap">
+              <SlideInFromLeftAnimation duration={0.5} delay={0.25}>
                 <p className="text-nowrap font-semibold">Privacy Policy</p>
               </SlideInFromLeftAnimation>
-              <SlideInFromLeftAnimation
-                duration={0.5}
-                delay={0.35}
-                className={"w-[100%]"}
-              >
+              <SlideInFromLeftAnimation duration={0.5} delay={0.35}>
                 <p className="text-nowrap font-semibold">Terms of Use</p>
               </SlideInFromLeftAnimation>
             </div>
