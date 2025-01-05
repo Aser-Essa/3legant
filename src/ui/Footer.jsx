@@ -64,7 +64,7 @@ function Footer() {
         <div className="mt-[49px] flex items-center justify-between max-md:flex-col max-md:gap-4 max-sm:mt-10 max-sm:flex-col-reverse">
           <div className="flex items-center gap-7 text-nowrap py-4 text-xs leading-5 text-[#fefefe] max-sm:flex-col-reverse max-sm:pb-0 max-sm:pt-8">
             <SlideInFromLeftAnimation duration={0.5} delay={0.1}>
-              <p className="text-white-shade-1 max-sm:text-xs max-sm:font-normal">
+              <p className="text-nowrap text-white-shade-1 max-sm:text-xs max-sm:font-normal">
                 Copyright © 2023 3legant. All rights reserved
               </p>
             </SlideInFromLeftAnimation>
@@ -74,14 +74,14 @@ function Footer() {
                 delay={0.25}
                 className={"w-[107%]"}
               >
-                <p className="font-semibold">Privacy Policy</p>
+                <p className="text-nowrap font-semibold">Privacy Policy</p>
               </SlideInFromLeftAnimation>
               <SlideInFromLeftAnimation
                 duration={0.5}
                 delay={0.35}
                 className={"w-[100.1%]"}
               >
-                <p className="font-semibold">Terms of Use</p>
+                <p className="text-nowrap font-semibold">Terms of Use</p>
               </SlideInFromLeftAnimation>
             </div>
           </div>
