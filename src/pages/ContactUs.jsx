@@ -4,24 +4,20 @@ import AboutUs from "../ui/AboutUs";
 import ContactUsDetails from "../features/contact us/ContactUsDetails";
 import ContactUsFormAndMap from "../features/contact us/ContactUsFormAndMap";
 import Services from "../ui/Services";
-import { NavLink } from "react-router-dom";
 import PageNavigation from "../ui/PageNavigation";
-import { motion } from "motion/react";
+import PageNavigationLink from "../ui/PageNavigationLink";
 
 function ContactUs() {
   return (
     <>
       <SectionContainer className={"mb-20 max-sm:mb-10"}>
         <PageNavigation className={"mt-4"}>
-          <motion.div
-            initial={{ opacity: 0, translateX: 0 }}
-            animate={{ opacity: 1, translateX: [-100, 5, 0] }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-          >
-            <NavLink to={"/contact-us"} className="flex items-center gap-1">
-              <p>Contact Us</p>
-            </NavLink>
-          </motion.div>
+          <PageNavigationLink
+            title={"Contact Us"}
+            link={"/contact-us"}
+            className="flex-shrink-0 overflow-hidden"
+            delay={0.4}
+          />
         </PageNavigation>
 
         <ContactUsDescription />

@@ -57,21 +57,25 @@ function BilingAddressForm() {
         <form className="flex flex-col gap-1 text-sm leading-[22px]">
           <input
             className="bg-transparent focus:outline-none"
-            value={state || "Sofia Havertz"}
+            value={state?.length >= 0 ? state : "Sofia Havertz"}
             id={"state"}
             disabled={!edit}
             onChange={(e) => setState(e.target.value)}
           />
           <input
             className="bg-transparent focus:outline-none"
-            value={number || "(+1) 234 567 890"}
+            value={number?.length >= 0 ? number : "(+1) 234 567 890"}
             id={"number"}
             disabled={!edit}
             onChange={(e) => setNumber(e.target.value)}
           />
           <input
             className="bg-transparent focus:outline-none"
-            value={street || "345 Long Island, NewYork, United States"}
+            value={
+              street?.length >= 0
+                ? street
+                : "345 Long Island, NewYork, United States"
+            }
             id={"street"}
             disabled={!edit}
             onChange={(e) => setStreet(e.target.value)}

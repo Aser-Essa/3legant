@@ -1,8 +1,7 @@
+/* eslint-disable react/prop-types */
 import { motion } from "motion/react";
 
-// eslint-disable-next-line react/prop-types
 function TextAnimation({ text, delay = 0 }) {
-  // eslint-disable-next-line react/prop-types
   const textArray = text?.split("");
   return (
     <div className="flex">
@@ -12,7 +11,7 @@ function TextAnimation({ text, delay = 0 }) {
         else {
           return (
             <motion.span
-              key={`${el} ${Math.random()} ${idx}`}
+              key={`${el} ${idx}`}
               initial={{ opacity: 0, translateX: "-25%" }}
               whileInView={{ opacity: 1, translateX: "0" }}
               transition={{ duration: 0.4, delay: `${idx / 30 + delay}` }}

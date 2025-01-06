@@ -13,6 +13,7 @@ function Shop() {
           title="Shop Page"
           paragraph="Let’s design the place you always imagined."
           img="/shop-banner.png"
+          link={"shop"}
         />
         <FilterSortGridShop />
         <div className="flex w-full gap-5">

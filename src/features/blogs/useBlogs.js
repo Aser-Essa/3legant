@@ -4,9 +4,7 @@ import { useSearchParams } from "react-router-dom";
 
 function useBlogs() {
   const [searchParams] = useSearchParams();
-
   const sortBy = searchParams.get("sortby") || "";
-
   const display = searchParams.get("display") || "";
 
   let { data, isLoading } = useQuery({
@@ -14,8 +12,15 @@ function useBlogs() {
     queryFn: () => getBlogs({ sortBy }),
   });
 
+  // el.date?.split(" ").slice(0, 2)?.join(" "),
+  // el.date?.split(" ")[el.date?.split(" ").length - 1]?.slice(0, 4),
+
   function isNew(el) {
-    const isNewBlog = new Date(el?.date)?.getTime() > new Date("2024-6-01");
+    const date = new Date(
+      `${el.date?.split(" ").slice(0, 2)?.join(" ")?.slice(0, -1)}${el.date?.split(" ")[el.date?.split(" ").length - 1]?.slice(0, 4)}`,
+    );
+
+    const isNewBlog = date?.getTime() > new Date("2024-6-01");
     return isNewBlog;
   }
 

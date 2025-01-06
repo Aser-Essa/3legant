@@ -18,10 +18,7 @@ function BlogCard({ article, delay, animation, ArrowOrDate }) {
           className="flex h-full w-full flex-col"
         >
           <div className="h-full w-full space-y-6 overflow-hidden">
-            <img
-              src={article?.images?.at(1)}
-              className="h-[325px] w-full scale-y-150"
-            />
+            <img src={article?.images?.at(1)} className="h-[325px] w-full" />
           </div>
           <p className="mb-2 mt-6 max-h-[58px] min-h-[58px] overflow-hidden font-poppins text-xl font-medium leading-[28px] max-lg:text-start max-lg:text-sm max-sm:mt-4 max-sm:max-h-fit max-sm:min-h-fit max-sm:font-semibold">
             {article?.title}
@@ -32,7 +29,7 @@ function BlogCard({ article, delay, animation, ArrowOrDate }) {
             </span>
           ) : (
             <p className="font-inter text-xs text-black-shade-4">
-              {article?.date}
+              {article?.date?.slice(0, -5)}
             </p>
           )}
         </NavLink>

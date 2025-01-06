@@ -5,7 +5,7 @@ import SlideInFromLeftAnimation from "./SlideInFromLeftAnimation";
 import TextAnimation from "./TextAnimation";
 import TextRevealAnimation from "./TextRevealAnimation";
 
-function Details({ product }) {
+function Description({ product }) {
   const discount = (+product?.discount / 100) * product?.Price || 0;
 
   return (
@@ -44,4 +44,4 @@ function Details({ product }) {
   );
 }
 
-export default Details;
+export default Description;

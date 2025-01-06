@@ -47,7 +47,7 @@ function SignInForm() {
           }}
         />
 
-        <Form.Check id="terms&privacy" isRequired={true}>
+        <Form.Check id="rememberMe" isRequired={false}>
           <span className="flex w-full items-center justify-between">
             <p>Remember me</p>
             <Link className="font-semibold text-black max-sm:text-xs">

@@ -9,6 +9,7 @@ function BlogsCards() {
   const [searchParams] = useSearchParams();
   const gridType = searchParams.get("grid") || 4;
   let { data: articles, isLoading } = useBlogs();
+
   articles = articles?.filter((el) => el?.images?.length > 1);
 
   if (isLoading) return <Spinner />;
@@ -16,6 +17,7 @@ function BlogsCards() {
   return (
     <>
       <GridPage
+        type="blog"
         data={articles}
         render={(el, idx) => {
           if (gridType == 3 || gridType == 4 || window.innerWidth < 638) {
@@ -28,7 +30,13 @@ function BlogsCards() {
               />
             );
           } else {
-            return <DetaildBlogCard article={el} key={`${el} ${idx}`} />;
+            return (
+              <DetaildBlogCard
+                article={el}
+                key={`${el} ${idx}`}
+                gridType={gridType}
+              />
+            );
           }
         }}
       />

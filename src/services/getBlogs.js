@@ -2,7 +2,7 @@ import { supabase } from "../Supabase";
 
 export async function getBlogs({ sortBy }) {
   const [sort, order] = sortBy?.split("_") || [];
-  let query = supabase.from("articles").select("*");
+  let query = supabase.from("new articles").select("*");
   if (sortBy) {
     query = query.order(sort, { ascending: order == "desc" ? false : true });
   }
@@ -13,7 +13,7 @@ export async function getBlogs({ sortBy }) {
 
 export async function getBlog({ id }) {
   let { data: article } = await supabase
-    .from("articles")
+    .from("new articles")
     .select("*")
     .eq("id", id);
   article = article[0];

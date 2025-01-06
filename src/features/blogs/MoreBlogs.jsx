@@ -13,7 +13,7 @@ function MoreBlogs({ title }) {
     <>
       <div className="mt-[80px] max-sm:mt-8">
         <div className="mb-10 flex items-center justify-between max-sm:mb-8">
-          <div className="text-[28px] font-medium">
+          <div className="text-[28px] font-medium max-sm:hidden">
             <TextAnimation text={title} />
           </div>
           <ArrowLink to="/blog">More Articles</ArrowLink>

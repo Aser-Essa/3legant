@@ -13,6 +13,7 @@ function Blog() {
           title="Our Blog"
           paragraph="Home ideas and design inspiration"
           img="/ourBlogPage.png"
+          link={"blog"}
         />
         <FilterSortGridBlog />
         <div className="mb-20 mt-10 flex w-full gap-5">

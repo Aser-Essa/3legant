@@ -3,13 +3,15 @@ import List from "../../ui/List";
 import ListItem from "../../ui/ListItem";
 import Grid from "../../ui/Grid";
 import { NavLink, useSearchParams } from "react-router-dom";
-import { BsFillGrid3X3GapFill } from "react-icons/bs";
+import { BsFillGrid3X3GapFill, BsGridFill } from "react-icons/bs";
 import Grid1Icon from "../../ui/Grid1Icon";
 import Grid2Icon from "../../ui/Grid2Icon";
+import { useEffect, useState } from "react";
 
 function FilterSortGridBlog() {
   const [searchParams] = useSearchParams();
   const display = searchParams?.get("display");
+  const [width, setWidth] = useState(window.innerWidth);
 
   const activeStyle = {
     borderBottom: "1px #141718 solid",
@@ -21,6 +23,13 @@ function FilterSortGridBlog() {
     fontWeight: "600",
     color: "#807E7E",
   };
+
+  useEffect(() => {
+    window.addEventListener("resize", () => setWidth(window.innerWidth));
+    return window.removeEventListener("resize", () =>
+      setWidth(window.innerWidth),
+    );
+  }, []);
 
   return (
     <div className="mt-6 flex items-center justify-between max-sm:flex-col max-sm:gap-4">
@@ -56,16 +65,14 @@ function FilterSortGridBlog() {
           >
             <BsFillGrid3X3GapFill className="h-[21px] w-[21px]" />
           </ListItem>
+          <ListItem value="3" styleType="card" className={"max-sm:hidden"}>
+            <BsGridFill className="h-[18px] w-[18px]" />
+          </ListItem>
           <ListItem value="2" styleType="card">
             <Grid2Icon />
           </ListItem>
-          <ListItem
-            value="1"
-            styleType="card"
-            defaultValue={true}
-            className="hidden max-sm:flex"
-          >
-            <Grid1Icon defaultValue={true} />
+          <ListItem value="1" styleType="card" defaultValue={width <= 680}>
+            <Grid1Icon defaultValue={width <= 680} />
           </ListItem>
         </Grid>
       </div>

@@ -1,9 +1,9 @@
-import { NavLink } from "react-router-dom";
+/* eslint-disable react/prop-types */
 import PageNavigation from "./PageNavigation";
 import { motion } from "motion/react";
+import PageNavigationLink from "./PageNavigationLink";
 
-// eslint-disable-next-line react/prop-types
-function HeroSection({ title, paragraph, img }) {
+function HeroSection({ title, paragraph, img, link }) {
   return (
     <motion.div
       className="relative"
@@ -14,15 +14,12 @@ function HeroSection({ title, paragraph, img }) {
       <img src={img} className="h-[392px] w-full" />
       <div className="absolute left-[50%] top-[50%] flex w-full translate-x-[-50%] translate-y-[-50%] flex-col items-center space-y-6 text-center text-black-shade-1 max-sm:space-y-4">
         <PageNavigation>
-          <div className="overflow-hidden px-4">
-            <motion.div
-              initial={{ opacity: 0, translateX: 0 }}
-              animate={{ opacity: 1, translateX: [-100, 5, 0] }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-            >
-              <NavLink className="font-inter text-sm font-medium">Shop</NavLink>
-            </motion.div>
-          </div>
+          <PageNavigationLink
+            title={link[0]?.toUpperCase() + link?.slice(1)}
+            link={`/${link}`}
+            className="font-inter text-sm font-medium"
+            delay={0.4}
+          />
         </PageNavigation>
         <p className="text-[54px] font-medium leading-[58px] max-sm:text-[40px]">
           {title}

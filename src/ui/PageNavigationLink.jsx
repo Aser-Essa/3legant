@@ -1,20 +1,20 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { IoIosArrowForward } from "react-icons/io";
 import { motion } from "motion/react";
 
 // eslint-disable-next-line react/prop-types
-function PageNavigationLink({ title, link }) {
+function PageNavigationLink({ title, link, className, delay = 0.3 }) {
   return (
-    <div className="flex-shrink-0 overflow-hidden">
+    <div className={className}>
       <motion.div
         initial={{ opacity: 0, translateX: 0 }}
         animate={{ opacity: 1, translateX: [-100, 5, 0] }}
-        transition={{ duration: 0.5, delay: 0.3 }}
+        transition={{ duration: 0.5, delay: delay }}
       >
-        <Link to={link} className="flex items-center gap-1">
+        <NavLink to={link} className="flex items-center gap-1">
           <p className="text-nowrap font-inter text-sm font-medium">{title}</p>
           <IoIosArrowForward />
-        </Link>
+        </NavLink>
       </motion.div>
     </div>
   );

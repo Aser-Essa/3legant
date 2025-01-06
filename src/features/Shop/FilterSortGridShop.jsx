@@ -8,11 +8,21 @@ import { BsGridFill } from "react-icons/bs";
 import { BsFillGrid3X3GapFill } from "react-icons/bs";
 import Grid1Icon from "../../ui/Grid1Icon";
 import { useSearchParams } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 function Filter() {
   const [searchParams] = useSearchParams("");
+  const [width, setWidth] = useState(window.innerWidth);
+
   const value = searchParams.get("category")?.replace("_", " ");
   const gridType = searchParams.get("grid");
+
+  useEffect(() => {
+    window.addEventListener("resize", () => setWidth(window.innerWidth));
+    return window.removeEventListener("resize", () =>
+      setWidth(window.innerWidth),
+    );
+  }, []);
 
   return (
     <div
@@ -85,12 +95,8 @@ function Filter() {
           <ListItem value="2" styleType="card">
             <Grid2Icon />
           </ListItem>
-          <ListItem
-            value="1"
-            styleType="card"
-            defaultValue={window.innerWidth <= 680}
-          >
-            <Grid1Icon defaultValue={window.innerWidth <= 680} />
+          <ListItem value="1" styleType="card" defaultValue={width <= 680}>
+            <Grid1Icon defaultValue={width <= 680} />
           </ListItem>
         </Grid>
       </div>

@@ -15,7 +15,7 @@ function NewArrival() {
             </p>
           </SlideInFromLeftAnimation>
           <span className="max-sm:hidden">
-            <ArrowLink>More Products</ArrowLink>
+            <ArrowLink to={"/shop"}>More Products</ArrowLink>
           </span>
         </div>
         <ProductCards />
