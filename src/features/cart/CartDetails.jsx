@@ -1,8 +1,8 @@
 import { useSelector } from "react-redux";
 
 import CouponInput from "./CouponInput";
-import CartSummary from "./CartSummary";
 import CartTable from "./CartTable";
+import CartSummary from "./CartSummary";
 
 function CartDetails() {
   const { cart } = useSelector((store) => store.cart);
