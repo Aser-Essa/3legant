@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 
 import CouponInput from "./CouponInput";
-import CartSummary from "./cartSummary";
+import CartSummary from "./CartSummary";
 import CartTable from "./CartTable";
 
 function CartDetails() {
