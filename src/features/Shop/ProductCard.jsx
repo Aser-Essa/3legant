@@ -109,7 +109,7 @@ function ProductCard({ product, delay, animation }) {
           </div>
           <img
             src={product?.primary_image}
-            className="mx-auto mt-[15px] w-[200px] max-sm:mt-0 max-sm:w-[177px]"
+            className="mx-auto mt-[15px] w-[200px] max-sm:mt-0 max-sm:w-[180px]"
             style={{ mixBlendMode: "multiply" }}
           />
           <motion.button

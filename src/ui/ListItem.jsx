@@ -8,7 +8,7 @@ function ListItem({
   defaultValue,
   className,
   styleType,
-  setIsOpen,
+  setIsOpen = () => {},
 }) {
   const [searchParams, setSearchParams] = useSearchParams();
 

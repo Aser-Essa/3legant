@@ -1,14 +1,11 @@
 /* eslint-disable react/prop-types */
-import { useSearchParams } from "react-router-dom";
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
+import useGridColumns from "../hooks/useGridColumns";
 
 function GridPage({ data, render, type }) {
-  const [searchParams] = useSearchParams();
-  const gridType = searchParams.get("grid") || 4;
+  const { ref, gridType, grid34, grid12 } = useGridColumns({ type });
+
   let numOfIncrease = gridType == 1 || gridType == 2 ? 8 : 12;
-  const ref = useRef();
-  const [containerWidth, setContainerWidth] = useState(1120);
-  const [width, setWidth] = useState(window.innerWidth);
 
   const [numberOfProducts, setNumberOfProducts] = useState(numOfIncrease);
   data = data?.slice(0, numberOfProducts);
@@ -16,46 +13,6 @@ function GridPage({ data, render, type }) {
   function handleClick() {
     setNumberOfProducts((num) => num + numOfIncrease);
   }
-
-  useEffect(() => {
-    if (ref.current) {
-      setContainerWidth(ref.current.clientWidth);
-    }
-    const handleResize = () => {
-      if (ref.current) {
-        setContainerWidth(ref.current.clientWidth);
-      }
-    };
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, [gridType]);
-
-  useEffect(() => {
-    window.addEventListener("resize", () => setWidth(window.innerWidth));
-    return window.removeEventListener("resize", () =>
-      setWidth(window.innerWidth),
-    );
-  }, []);
-
-  const grid34 =
-    type == "blog"
-      ? width > 980
-        ? containerWidth / gridType - gridType * 6
-        : 262
-      : width > 980
-        ? 250
-        : 480;
-
-  const grid12 =
-    type == "blog"
-      ? width > 1200
-        ? containerWidth / gridType - gridType * 6
-        : 500
-      : width > 1200
-        ? containerWidth / gridType - gridType * 6
-        : 500;
 
   return (
     <div

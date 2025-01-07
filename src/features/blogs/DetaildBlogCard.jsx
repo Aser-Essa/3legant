@@ -18,11 +18,11 @@ function DetaildBlogCard({ article, gridType }) {
           className={`w-fit p-6 py-0 font-inter font-semibold max-xl:w-full max-sm:py-0`}
         >
           <Stars rate={article?.Rate} />
-          <div className="mb-4 mt-2 w-fit">
+          <div className="mb-4 mt-2 line-clamp-2 w-fit">
             <p>{article?.title}</p>
           </div>
           <div
-            className={`h-[240px] overflow-hidden text-ellipsis font-inter text-sm font-normal text-black-shade-4 ${gridType == 1 && "w-[650px]"}`}
+            className={`line-clamp-[12] h-[240px] overflow-hidden text-ellipsis font-inter text-sm font-normal text-black-shade-4 ${gridType == 1 && "w-[650px]"}`}
           >
             {article?.article_paragraphs?.join(" ")}
           </div>

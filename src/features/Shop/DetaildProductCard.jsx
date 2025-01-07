@@ -64,7 +64,7 @@ function DetaildProductCard({ product, gridType }) {
         onClick={handleClickProduct}
       >
         <div
-          className={`relative h-[349px] ${isGrid2 ? "w-[266px]" : "w-[266px] min-w-[auto]"} rounded-sm bg-white-shade-2 p-4 max-sm:h-[308px] max-sm:p-[14px]`}
+          className={`relative h-[349px] ${isGrid2 ? "w-[266px]" : "min-w-[280px]"} rounded-sm bg-white-shade-2 p-4 max-sm:h-[308px] max-sm:p-[14px]`}
         >
           <div className="flex items-center justify-between">
             <div>
@@ -91,7 +91,7 @@ function DetaildProductCard({ product, gridType }) {
           />
         </div>
         <div
-          className={`mt-3 max-w-[702px] p-6 font-inter font-semibold max-xl:w-full max-sm:py-0 ${isGrid2 ? "" : "w-full"}`}
+          className={`mt-3 w-full max-w-[702px] p-6 font-inter font-semibold max-xl:w-full max-sm:py-0`}
         >
           <Stars rate={product?.Rate} />
           <div className="my-4">

@@ -17,7 +17,7 @@ function SignUpForm() {
   return (
     <>
       <Form
-        className="mt-8 flex flex-col gap-6"
+        className="mt-8 flex flex-col gap-2.5"
         register={register}
         errors={errors}
         onSubmit={handleSubmit(onSubmit)}
