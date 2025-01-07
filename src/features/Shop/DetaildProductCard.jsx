@@ -4,47 +4,26 @@ import { GoHeartFill } from "react-icons/go";
 import Stars from "../../ui/Stars";
 import { formatCurrency } from "../../utils/formatCurrency";
 import { GoHeart } from "react-icons/go";
-import { addToCart, deleteItemFromCart } from "../../Redux/cartSlice";
-import {
-  addToWishlist,
-  deleteItemFromWishlist,
-} from "../../Redux/wishlistSlice";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { useRef } from "react";
+import { useAddCart } from "../cart/useAddCart";
+import { useAddWhishlist } from "../whishlist/useAddWhishlist";
 
 function DetaildProductCard({ product, gridType }) {
   const [searchParams] = useSearchParams();
   const category =
     searchParams?.get("category")?.replace("_", " ") || "All Rooms";
-  const refAddCart = useRef();
-  const refAddWishlist = useRef();
   const navigate = useNavigate();
   const isGrid2 = gridType == 2;
-  const dispatch = useDispatch();
-  const { cart } = useSelector((store) => store.cart);
+
   const { wishlist } = useSelector((store) => store.wishlist);
-  const isInwishlist = wishlist.map((el) => el.id).includes(product.id);
+  const refAddWishlist = useRef();
+  const isInwishlist = wishlist.map((el) => el.id).includes(product?.id);
+  const { handleClickAddWishlist } = useAddWhishlist(product);
 
-  function handleClickAddCart() {
-    const isInWishlist = wishlist?.map((el) => el.id)?.includes(product?.id);
-    if (isInWishlist) {
-      dispatch(deleteItemFromWishlist(product?.id));
-    }
-    dispatch(addToCart(product));
-  }
-
-  function handleClickAddWishlist() {
-    const isInCart = cart?.map((el) => el.id)?.includes(product?.id);
-    if (isInCart) {
-      dispatch(deleteItemFromCart(product?.id));
-    }
-    if (isInwishlist) {
-      dispatch(deleteItemFromWishlist(product?.id));
-      return;
-    }
-    dispatch(addToWishlist(product));
-  }
+  const refAddCart = useRef();
+  const { handleClickAddCart } = useAddCart(product);
 
   function handleClickProduct(e) {
     if (

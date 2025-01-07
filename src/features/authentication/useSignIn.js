@@ -5,14 +5,13 @@ import toast from "react-hot-toast";
 
 export function useSignIn() {
   const navigate = useNavigate();
-
   const queryClient = useQueryClient();
 
   const { mutate: SignIn, isLoading } = useMutation({
     mutationFn: ({ email, password }) => SignInApi({ email, password }),
-    onSuccess: (user) => {
+    onSuccess: ({ user }) => {
       toast.success("Successfully Signed In");
-      queryClient.setQueryData(["user"], user.user);
+      queryClient.setQueryData(["user"], user);
       navigate("/");
     },
     onError: (error) => {

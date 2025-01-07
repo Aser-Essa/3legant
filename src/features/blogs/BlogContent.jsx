@@ -3,12 +3,10 @@ import { motion } from "motion/react";
 
 function BlogContent() {
   const { data: article } = useBlog();
-  console.log(article);
   const paragraphsNumber = Math.min(
     article?.article_paragraphs?.length - 1,
     article?.images?.length,
   );
-  console.log(paragraphsNumber);
   return (
     <>
       <div>

@@ -5,7 +5,8 @@ import { FiFacebook, FiInstagram } from "react-icons/fi";
 import { TbBrandYoutube } from "react-icons/tb";
 import { createPortal } from "react-dom";
 import { useSelector } from "react-redux";
-import { useUser } from "../hooks/useUser";
+import { useUser } from "../features/account/useUser";
+
 import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import { FaBars } from "react-icons/fa6";
 

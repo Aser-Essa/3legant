@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { LuPencilLine } from "react-icons/lu";
 import useUpdateAdress from "./useUpdateAdress";
-import { useUser } from "../../hooks/useUser";
+import { useUser } from "../account/useUser";
 import SlideInFromRightAnimation from "../../ui/SlideInFromRightAnimation";
 
 function ShippingAddressForm() {

@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useNavigate } from "react-router-dom";
-import { useUser } from "../hooks/useUser";
+import { useUser } from "../features/account/useUser";
 import { useEffect } from "react";
 import Spinner from "./Spinner";
 

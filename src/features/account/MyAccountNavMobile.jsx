@@ -20,6 +20,10 @@ function MyAccountNavMobile() {
     navigate("/");
   }
 
+  function handleCloseMenu() {
+    setIsOpen(false);
+  }
+
   return (
     <div>
       <div
@@ -41,24 +45,28 @@ function MyAccountNavMobile() {
             <NavLink
               to={"/myAccount"}
               className="account inline-block w-full py-2"
+              onClick={handleCloseMenu}
             >
               Account
             </NavLink>
             <NavLink
               to={"/address"}
               className="account inline-block w-full py-2"
+              onClick={handleCloseMenu}
             >
               Address
             </NavLink>
             <NavLink
               to={"/orders"}
               className="account inline-block w-full py-2"
+              onClick={handleCloseMenu}
             >
               Orders
             </NavLink>
             <NavLink
               to={"/wishlist"}
               className="account inline-block w-full py-2"
+              onClick={handleCloseMenu}
             >
               Wishlist
             </NavLink>

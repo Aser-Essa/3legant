@@ -40,7 +40,7 @@ function BlogHeader() {
         <div className="flex items-center gap-12 text-black-shade-4 max-sm:justify-between max-sm:gap-0">
           <div className="flex items-center gap-1">
             <motion.img
-              src="/public/Vector.png"
+              src="/Vector.png"
               className="h-5 w-5"
               initial={{ opacity: 0, translateX: "-25%" }}
               whileInView={{ opacity: 1, translateX: "0" }}
@@ -51,7 +51,7 @@ function BlogHeader() {
           </div>
           <div className="flex items-center gap-1">
             <motion.img
-              src="/public/calendar.png"
+              src="/calendar.png"
               className="h-5 w-5"
               initial={{ opacity: 0, translateX: "-25%" }}
               whileInView={{ opacity: 1, translateX: "0" }}

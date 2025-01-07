@@ -5,42 +5,18 @@ import SlideInFromLeftAnimation from "../../ui/SlideInFromLeftAnimation";
 import SlideInFromRightAnimation from "../../ui/SlideInFromRightAnimation";
 import { GoHeart, GoHeartFill } from "react-icons/go";
 import { motion } from "motion/react";
-import {
-  addToWishlist,
-  deleteItemFromWishlist,
-} from "../../Redux/wishlistSlice";
-import {
-  addToCart,
-  deleteItemFromCart,
-  removeFromCart,
-} from "../../Redux/cartSlice";
+import { removeFromCart } from "../../Redux/cartSlice";
+import { useAddCart } from "../cart/useAddCart";
+import { useAddWhishlist } from "../whishlist/useAddWhishlist";
 
 function AddToCartOrWishList({ product }) {
-  const { cart } = useSelector((store) => store.cart);
-  const { wishlist } = useSelector((store) => store.wishlist);
   const dispatch = useDispatch();
-  const isInwishlist = wishlist.map((el) => el.id).includes(product?.id);
+  const { cart } = useSelector((store) => store.cart);
+  const { handleClickAddCart } = useAddCart(product);
   const quantity = cart?.filter((el) => el?.id == product?.id)[0]?.quantity;
-
-  function handleClickAddCart() {
-    const isInWishlist = wishlist?.map((el) => el.id)?.includes(product?.id);
-    if (isInWishlist) {
-      dispatch(deleteItemFromWishlist(product?.id));
-    }
-    dispatch(addToCart(product));
-  }
-
-  function handleClickAddWishlist() {
-    const isInCart = cart?.map((el) => el.id)?.includes(product?.id);
-    if (isInCart) {
-      dispatch(deleteItemFromCart(product?.id));
-    }
-    if (isInwishlist) {
-      dispatch(deleteItemFromWishlist(product?.id));
-      return;
-    }
-    dispatch(addToWishlist(product));
-  }
+  const { wishlist } = useSelector((store) => store.wishlist);
+  const { handleClickAddWishlist } = useAddWhishlist(product);
+  const isInwishlist = wishlist.map((el) => el.id).includes(product?.id);
 
   function handleDecrease() {
     dispatch(removeFromCart({ ...product, quantity }));

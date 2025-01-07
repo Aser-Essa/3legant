@@ -4,11 +4,12 @@ import toast from "react-hot-toast";
 
 function useLogout() {
   const queryClient = useQueryClient();
+
   const { mutate: Logout } = useMutation({
     mutationFn: () => LogoutApi(),
     onSuccess: () => {
-      toast.success("User Data SuccessFully Updated");
-      queryClient.invalidateQueries(["user"]);
+      toast.success("User Successfully Logout");
+      queryClient.removeQueries();
     },
     onError: (error) => {
       toast.error(error.message);

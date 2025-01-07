@@ -4,49 +4,28 @@ import { PiHeartFill } from "react-icons/pi";
 import Stars from "../../ui/Stars";
 import { formatCurrency } from "../../utils/formatCurrency";
 import { useNavigate, useSearchParams } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { addToCart, deleteItemFromCart } from "../../Redux/cartSlice";
+import { useSelector } from "react-redux";
 import { useRef, useState } from "react";
-import {
-  addToWishlist,
-  deleteItemFromWishlist,
-} from "../../Redux/wishlistSlice";
 import { motion } from "motion/react";
 import { AnimatePresence } from "motion/react";
+import { useAddCart } from "../cart/useAddCart";
+import { useAddWhishlist } from "../whishlist/useAddWhishlist";
 
 function ProductCard({ product, delay, animation }) {
   const [searchParams] = useSearchParams();
   const gridType = searchParams.get("grid");
   const category = searchParams?.get("category") || "All Rooms";
-  const { cart } = useSelector((store) => store.cart);
-  const { wishlist } = useSelector((store) => store.wishlist);
-  const refAddCart = useRef();
-  const refAddWishlist = useRef();
   const navigate = useNavigate();
-  const dispatch = useDispatch();
   const isNew = new Date(product?.Date)?.getTime() > new Date("2024-6-01");
   const [isHovered, setIsHovered] = useState(false);
-  const isInwishlist = wishlist.map((el) => el.id).includes(product.id);
 
-  function handleClickAddCart() {
-    const isInWishlist = wishlist?.map((el) => el.id)?.includes(product?.id);
-    if (isInWishlist) {
-      dispatch(deleteItemFromWishlist(product?.id));
-    }
-    dispatch(addToCart(product));
-  }
+  const { wishlist } = useSelector((store) => store.wishlist);
+  const isInwishlist = wishlist.map((el) => el.id).includes(product?.id);
+  const refAddWishlist = useRef();
+  const { handleClickAddWishlist } = useAddWhishlist(product);
 
-  function handleClickAddWishlist() {
-    const isInCart = cart?.map((el) => el.id)?.includes(product?.id);
-    if (isInCart) {
-      dispatch(deleteItemFromCart(product?.id));
-    }
-    if (isInwishlist) {
-      dispatch(deleteItemFromWishlist(product?.id));
-      return;
-    }
-    dispatch(addToWishlist(product));
-  }
+  const refAddCart = useRef();
+  const { handleClickAddCart } = useAddCart(product);
 
   function handleClickProduct(e) {
     if (
@@ -72,7 +51,7 @@ function ProductCard({ product, delay, animation }) {
         onHoverEnd={() => setIsHovered(false)}
       >
         <div
-          className={`relative max-h-[349px] min-h-[349px] w-full rounded-sm bg-white-shade-2 p-4 max-sm:h-auto max-sm:min-h-[225px] max-sm:p-[14px] ${gridType == 2 ? "max-sm:max-h-[225px]" : ""}`}
+          className={`relative max-h-[349px] min-h-[349px] w-full rounded-sm bg-white-shade-2 p-4 max-sm:p-[14px] ${gridType == 2 ? "max-sm:h-auto max-sm:max-h-[225px] max-sm:min-h-[225px]" : "max-sm:h-auto max-sm:min-h-[280px]"}`}
         >
           <div className="flex justify-between">
             <div>
@@ -113,7 +92,7 @@ function ProductCard({ product, delay, animation }) {
             style={{ mixBlendMode: "multiply" }}
           />
           <motion.button
-            className="show-at-hover h-[46px] w-full rounded-lg bg-[#141718] text-[#fefefe] opacity-0 transition-all"
+            className="absolute bottom-[14px] h-[46px] w-[calc(100%-28px)] rounded-lg bg-[#141718] text-[#fefefe] opacity-0 transition-all"
             onClick={handleClickAddCart}
             ref={refAddCart}
             initial={{ opacity: 0 }}

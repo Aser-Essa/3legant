@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
-import WishlistProduct from "./WishlistProduct";
 import { AnimatePresence } from "motion/react";
+import WishlistProduct from "./WishlistProduct";
 
 function WhishlistProducts() {
   const { wishlist } = useSelector((store) => store.wishlist);

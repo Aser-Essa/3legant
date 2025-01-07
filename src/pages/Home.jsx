@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+import { useUser } from "../features/account/useUser";
 import MoreBlogs from "../features/blogs/MoreBlogs";
 import Categories from "../ui/Categories";
 import HomeHeroSection from "../ui/HomeHeroSection";
@@ -9,6 +11,10 @@ import Services from "../ui/Services";
 import Solgan from "../ui/Solgan";
 
 function Home() {
+  const { user } = useUser();
+  useEffect(() => {
+    console.log(user);
+  });
   return (
     <>
       <HomeHeroSection />

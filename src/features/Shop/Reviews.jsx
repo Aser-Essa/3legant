@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useUser } from "../../hooks/useUser";
+import { useUser } from "../account/useUser";
 import FiveStarRate from "../../ui/FiveStarRate";
 import { IoIosArrowRoundForward, IoIosStar } from "react-icons/io";
 import Review from "./Review";

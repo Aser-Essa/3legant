@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import { useUser } from "../../hooks/useUser";
+import { useUser } from "../account/useUser";
 import SectionContainer from "../../ui/SectionContainer";
 import { LuCamera } from "react-icons/lu";
 import MyAccountNavMobile from "./MyAccountNavMobile";

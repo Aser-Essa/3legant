@@ -26,8 +26,8 @@ function useGridColumns({ type }) {
         : gridType == 2
           ? width > 636
             ? 600
-            : 157
-          : 280;
+            : 120
+          : 300;
 
   return { ref, containerWidth, width, gridType, grid34, grid12 };
 }

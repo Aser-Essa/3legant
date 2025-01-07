@@ -14,7 +14,7 @@ function useUpdateAvatar() {
         userId: user?.id,
       });
       toast.success("User Data Successfully Updated");
-      queryClient.setQueryData("user", user);
+      queryClient.setQueryData(["user"], user);
       queryClient.invalidateQueries(["user"]);
     },
     onError: (error) => {

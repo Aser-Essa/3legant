@@ -11,9 +11,9 @@ export function useSignUp() {
     mutationFn: ({ email, password, username, firstName, lastName }) =>
       SignUpApi({ email, password, username, firstName, lastName }),
 
-    onSuccess: (data) => {
+    onSuccess: ({ user }) => {
       toast.success("Successfully Signed Up");
-      queryClient.setQueryData(["user"], data.user);
+      queryClient.setQueryData(["user"], user);
       navigate("/");
     },
 
