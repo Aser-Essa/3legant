@@ -10,7 +10,10 @@ function Review({ user }) {
         key={user.name}
       >
         <div className="mb-4 flex gap-10">
-          <img src={user?.avatar} className="h-[72px] w-[72px] rounded-[50%]" />
+          <img
+            src={user?.avatar || "/default-user.png"}
+            className="h-[72px] w-[72px] rounded-[50%]"
+          />
           <div className="flex flex-col gap-4">
             <p className="font-inter text-xl font-semibold leading-8">
               {user?.name}

@@ -10,6 +10,8 @@ function Search() {
   const [products, setProducts] = useState([]);
   const { data } = useProducts();
   const { ref, open, setOpen } = useOutSideClick();
+  const portalTarget =
+    document.getElementsByClassName("xxx")[0] || document.body;
 
   function changeHandler(e) {
     setSearch(e.target.value);
@@ -21,14 +23,19 @@ function Search() {
         el?.title?.toLowerCase()?.startsWith(search?.toLowerCase()),
       ),
     );
-  }, [search]);
+  }, [data, search]);
+
+  function handleClick(e) {
+    e.stopPropagation();
+    setOpen((open) => !open);
+  }
 
   return (
     <>
       <motion.img
         src="/search 02.png"
         className="h-6 w-6 cursor-pointer text-white max-sm:hidden"
-        onClick={() => setOpen((open) => !open)}
+        onClick={handleClick}
         initial={{ opacity: 0, scale: 0, rotate: 0 }}
         animate={{ opacity: 1, scale: [0, 1.2, 1], rotate: [0, -60, 0] }}
         transition={{ duration: 0.6, delay: 0.3 }}
@@ -36,7 +43,7 @@ function Search() {
       {createPortal(
         open && (
           <div
-            className="absolute right-40 top-[100px] z-50 max-lg:right-20 max-md:right-10 max-sm:hidden"
+            className="fixed right-40 z-50 max-lg:right-20 max-md:right-10 max-sm:hidden"
             ref={ref}
           >
             <input
@@ -82,7 +89,7 @@ function Search() {
             )}
           </div>
         ),
-        document.body,
+        portalTarget,
       )}
     </>
   );

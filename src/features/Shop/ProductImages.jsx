@@ -9,12 +9,12 @@ import { useEffect, useRef } from "react";
 
 function ProductImages({ product }) {
   const ref = useRef();
-  const images = product?.images?.slice();
+  const images = product?.images;
 
   useEffect(() => {
     const allBullets = document.querySelectorAll(".productsBullets");
     allBullets.forEach((bullet, idx) => {
-      bullet.style.backgroundImage = `url(${images[idx]})`;
+      bullet.style.backgroundImage = `url(${images?.at(idx)})`;
     });
   }, [images]);
 
