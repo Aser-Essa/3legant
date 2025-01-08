@@ -6,9 +6,11 @@ import Footer from "./Footer";
 function AppLayout() {
   return (
     <>
-      <div className="fixed top-0 z-[100000] h-[100px] w-full">
-        <Offer />
-        <Header />
+      <div className="h-[100px]">
+        <div className="fixed top-0 z-[100000] w-full">
+          <Offer />
+          <Header />
+        </div>
       </div>
       <Outlet />
       <Footer />
