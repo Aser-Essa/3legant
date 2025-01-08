@@ -109,12 +109,12 @@ function App() {
         gutter={12}
         toastOptions={{
           success: {
-            duration: 3000,
+            duration: 2500,
           },
           error: {
-            duration: 5000,
+            duration: 3500,
           },
-          style: { fontSize: "16px", marginTop: "100px" },
+          style: { fontSize: "16px" },
         }}
       />
     </MotionConfig>

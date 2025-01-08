@@ -7,7 +7,7 @@ function AppLayout() {
   return (
     <>
       <div className="h-[100px]">
-        <div className="fixed top-0 z-[100000] w-full">
+        <div className="fixed top-0 z-[9998] w-full">
           <Offer />
           <Header />
         </div>
