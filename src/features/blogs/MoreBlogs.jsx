@@ -18,7 +18,7 @@ function MoreBlogs({ title }) {
           </div>
           <ArrowLink to="/blog">More Articles</ArrowLink>
         </div>
-        <div className="grid h-[443.8px] grid-cols-[repeat(auto-fill,minmax(300px,_1fr))] items-center gap-6 overflow-hidden">
+        <div className="grid min-h-[443.8px] grid-cols-[repeat(auto-fill,minmax(300px,_1fr))] items-center gap-6 overflow-hidden">
           {articles?.slice(0, 3)?.map((el, idx) => (
             <BlogCard
               article={el}
