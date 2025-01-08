@@ -114,7 +114,7 @@ function App() {
           error: {
             duration: 5000,
           },
-          style: { fontSize: "16px" },
+          style: { fontSize: "16px", marginTop: "100px" },
         }}
       />
     </MotionConfig>
