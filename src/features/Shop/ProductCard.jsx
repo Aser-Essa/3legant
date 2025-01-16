@@ -42,7 +42,7 @@ function ProductCard({ product, delay, animation }) {
     <AnimatePresence initial={animation}>
       <motion.div
         onClick={handleClickProduct}
-        className="card h-[433px] min-w-[calc(25%-18px)] cursor-pointer max-lg:min-w-[calc(33.33%-16px)] max-sm:h-fit max-sm:min-w-full"
+        className="card h-[433px] min-w-[calc(25%-18px)] cursor-pointer max-lg:min-w-[calc(33.33%-16px)] max-sm:h-fit max-sm:min-w-full max-sm:snap-center"
         initial={{ opacity: 0, translateY: "70%" }}
         whileInView={{ opacity: 1, translateY: 0 }}
         transition={{ duration: 0.55, delay: delay / 35 }}

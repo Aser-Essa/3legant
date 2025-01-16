@@ -12,7 +12,7 @@ function ProductCards() {
   data = data?.filter((el) => el?.discount && isNewProduct(el))?.slice(0, 30);
 
   return (
-    <div className="cards-container flex h-[485px] gap-6 overflow-y-hidden overflow-x-scroll pb-12 max-sm:h-[420px] max-sm:pb-10">
+    <div className="cards-container flex h-[485px] gap-6 overflow-y-hidden overflow-x-scroll pb-12 max-sm:h-[420px] max-sm:snap-x max-sm:snap-mandatory max-sm:pb-10">
       {data?.map((product, idx) => {
         return (
           <ProductCard
